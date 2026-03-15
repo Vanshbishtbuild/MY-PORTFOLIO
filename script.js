@@ -57,6 +57,32 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// 2.1 Mobile nav toggle
+const navToggle = document.getElementById('nav-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (navToggle && mobileMenu) {
+  const setMenuOpen = (open) => {
+    mobileMenu.classList.toggle('is-open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+    mobileMenu.setAttribute('aria-hidden', String(!open));
+  };
+
+  navToggle.addEventListener('click', () => {
+    setMenuOpen(!mobileMenu.classList.contains('is-open'));
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) {
+      setMenuOpen(false);
+    }
+  });
+}
+
 // 3. Simple Parallax Logic
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY;
