@@ -1,0 +1,5 @@
+[2026-03-15T08:25:15.805Z] Contact form error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-2aece7ee3d6sm73448765ad.57 - gsmtp
+[2026-03-15T08:25:17.781Z] Contact form rejected: hCaptcha verification failed.
+[2026-03-15T08:25:21.145Z] Contact form rejected: hCaptcha verification failed.
+[2026-03-15T08:25:21.860Z] Contact form rejected: hCaptcha verification failed.
