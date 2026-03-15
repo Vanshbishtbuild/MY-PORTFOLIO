@@ -43,7 +43,7 @@ http://localhost:3000
 ```
 
 ## Project Structure
-- `vansh_portfolio.html` - main HTML
+- `index.html` - main HTML
 - `styles.css` - custom styles
 - `script.js` - frontend behavior
 - `server.js` - backend server
