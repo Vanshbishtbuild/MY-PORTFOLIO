@@ -1,453 +1,670 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vansh Bisht — Web Developer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vansh Bisht — Software Engineer</title>
+<meta name="description" content="Vansh Bisht — Software Engineer focused on frontend UI/UX, React/Vite, and Node.js/Express APIs. Currently at ProcMart.">
+<meta property="og:title" content="Vansh Bisht — Software Engineer">
+<meta property="og:description" content="Frontend UI/UX + Node.js APIs. Building production features at ProcMart.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vanshbishtbuild.github.io/MY-PORTFOLIO/">
+<link rel="canonical" href="https://vanshbishtbuild.github.io/MY-PORTFOLIO/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>V</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0f0e;
+    --bg2: #111816;
+    --card: #141c1a;
+    --accent: #2dd4bf;
+    --accent-dim: #14b8a6;
+    --accent2: #f0b429;
+    --text: #e8efec;
+    --muted: #8a9a94;
+    --border: #24302c;
+    --glow: rgba(45, 212, 191, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+  body {
+    font-family: 'Outfit', system-ui, sans-serif;
+    background: var(--bg);
+    background-image:
+      radial-gradient(ellipse at 15% -10%, rgba(45,212,191,0.08) 0%, transparent 45%),
+      radial-gradient(ellipse at 90% 80%, rgba(240,180,41,0.05) 0%, transparent 40%),
+      linear-gradient(180deg, #0b0f0e 0%, #0e1412 100%);
+    color: var(--text);
+    line-height: 1.65;
+    min-height: 100vh;
+  }
+
+  a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+  a:hover { color: #5eead4; }
+
+  /* Nav */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    backdrop-filter: blur(14px);
+    background: rgba(11, 15, 14, 0.75);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, padding 0.3s;
+  }
+  .nav.scrolled { border-bottom-color: var(--border); }
+  .nav-inner {
+    max-width: 960px; margin: 0 auto; padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .nav-brand {
+    font-weight: 700; font-size: 1.15rem; color: var(--text); letter-spacing: -0.02em;
+  }
+  .nav-brand span { color: var(--accent); }
+  .nav-links { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .nav-links a {
+    color: var(--muted); font-size: 0.85rem; padding: 6px 12px; border-radius: 6px;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--accent); background: var(--glow); }
+  .nav-cta {
+    background: var(--accent) !important; color: #042f2e !important;
+    font-weight: 600; padding: 8px 16px !important; border-radius: 8px !important;
+  }
+  .nav-cta:hover { background: #5eead4 !important; color: #042f2e !important; }
+  .nav-toggle {
+    display: none; background: none; border: 1px solid var(--border);
+    color: var(--text); width: 40px; height: 40px; border-radius: 8px; cursor: pointer; font-size: 1.2rem;
+  }
+  @media (max-width: 720px) {
+    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      flex-direction: column; background: rgba(11,15,14,0.96); padding: 12px 24px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-links.open { display: flex; }
+  }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 72px 0 20px; }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding-top: 100px; padding-bottom: 60px; position: relative;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center;
+  }
+  @media (max-width: 800px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+    .hero-visual { order: -1; }
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+    color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before {
+    content: ''; width: 28px; height: 2px; background: var(--accent);
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 3.8rem); font-weight: 800;
+    letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px;
+  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero-lead {
+    font-size: 1.1rem; color: var(--muted); max-width: 520px; margin-bottom: 28px;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 0.92rem;
+    border: 1px solid transparent; cursor: pointer; transition: transform 0.2s, background 0.2s, border-color 0.2s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--accent); color: #042f2e; }
+  .btn-primary:hover { background: #5eead4; color: #042f2e; }
+  .btn-ghost {
+    background: transparent; color: var(--text); border-color: var(--border);
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-meta {
+    display: flex; gap: 28px; flex-wrap: wrap;
+  }
+  .meta-item .num {
+    font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: var(--accent2);
+  }
+  .meta-item .lbl { font-size: 0.78rem; color: var(--muted); }
+
+  .hero-visual {
+    position: relative; aspect-ratio: 1; max-width: 340px; margin: 0 auto;
+  }
+  .orbit {
+    position: absolute; inset: 0; border-radius: 50%;
+    border: 1px dashed var(--border);
+    animation: spin 40s linear infinite;
+  }
+  .orbit-2 { inset: 12%; animation-direction: reverse; animation-duration: 28s; border-color: rgba(45,212,191,0.25); }
+  .orbit-3 { inset: 28%; animation-duration: 20s; border-color: rgba(240,180,41,0.2); }
+  .avatar-ring {
+    position: absolute; inset: 22%;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(45,212,191,0.35), transparent 50%),
+      linear-gradient(145deg, #1a2e2a, #0d1614);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 60px var(--glow);
+  }
+  .avatar-ring span {
+    font-size: 3.5rem; font-weight: 800; letter-spacing: -0.04em; color: var(--accent);
+  }
+  .chip {
+    position: absolute; padding: 6px 12px; background: var(--card);
+    border: 1px solid var(--border); border-radius: 999px;
+    font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: var(--muted);
+    white-space: nowrap;
+  }
+  .chip-1 { top: 8%; right: -4%; color: var(--accent); }
+  .chip-2 { bottom: 18%; left: -8%; color: var(--accent2); }
+  .chip-3 { bottom: 4%; right: 10%; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Sections */
+  .section-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; margin-bottom: 28px; flex-wrap: wrap;
+  }
+  h2 {
+    font-size: 1.45rem; font-weight: 700; letter-spacing: -0.02em;
+    display: flex; align-items: center; gap: 12px;
+  }
+  h2 .idx {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+    color: var(--accent); font-weight: 500;
+  }
+  .section-line {
+    flex: 1; height: 1px; background: var(--border); min-width: 40px;
+  }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px;
+  }
+  @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
+  .about-text { color: var(--muted); font-size: 1.02rem; }
+  .about-text p + p { margin-top: 14px; }
+  .about-text strong { color: var(--text); font-weight: 600; }
+  .info-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px;
+  }
+  .info-row {
+    display: flex; justify-content: space-between; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+  }
+  .info-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .info-row:first-child { padding-top: 0; }
+  .info-row .k { color: var(--muted); }
+  .info-row .v { color: var(--text); font-weight: 500; text-align: right; }
+
+  /* Experience */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px;
+    width: 2px; background: linear-gradient(var(--accent), transparent);
+  }
+  .job {
+    position: relative; margin-bottom: 36px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px 26px;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .job:hover { border-color: rgba(45,212,191,0.45); transform: translateX(4px); }
+  .job::before {
+    content: ''; position: absolute; left: -26px; top: 28px;
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 0 4px var(--glow);
+  }
+  .job-top {
+    display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .job h3 { font-size: 1.1rem; font-weight: 700; }
+  .job .org { color: var(--accent); }
+  .job .when {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--muted);
+  }
+  .job .badge {
+    display: inline-block; margin: 4px 0 12px;
+    font-size: 0.78rem; color: var(--accent2);
+    background: rgba(240,180,41,0.1); border: 1px solid rgba(240,180,41,0.25);
+    padding: 4px 10px; border-radius: 6px;
+  }
+  .job ul { margin-left: 18px; color: var(--muted); font-size: 0.92rem; }
+  .job li { margin-bottom: 8px; }
+  .job li::marker { color: var(--accent); }
+
+  /* Projects */
+  .projects {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
+  }
+  @media (max-width: 640px) { .projects { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 24px; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(45,212,191,0.4);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  }
+  .card .tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+  .card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 14px; }
+  .card .tech-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .pill {
+    font-size: 0.72rem; padding: 3px 10px; border-radius: 999px;
+    background: var(--bg2); border: 1px solid var(--border); color: var(--muted);
+  }
+  .card-link { font-size: 0.88rem; font-weight: 600; }
+
+  /* Skills */
+  .skills-wrap { display: grid; gap: 16px; }
+  .skill-group {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 22px;
+  }
+  .skill-group h3 {
+    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--accent); margin-bottom: 12px; font-weight: 600;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill {
+    padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;
+    background: var(--bg2); border: 1px solid var(--border); color: var(--text);
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .skill:hover { border-color: var(--accent); color: var(--accent); background: var(--glow); }
+
+  /* Education */
+  .edu-list { display: grid; gap: 12px; }
+  .edu {
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    padding: 18px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+  }
+  .edu h3 { font-size: 1rem; }
+  .edu .sub { font-size: 0.88rem; color: var(--muted); }
+  .edu .meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--muted); text-align: right; }
+
+  /* Contact */
+  .contact-box {
+    text-align: center; padding: 48px 28px;
+    background:
+      radial-gradient(ellipse at 50% 0%, var(--glow), transparent 55%),
+      var(--card);
+    border: 1px solid var(--border); border-radius: 18px;
+  }
+  .contact-box h2 { justify-content: center; margin-bottom: 12px; }
+  .contact-box p { color: var(--muted); max-width: 440px; margin: 0 auto 24px; }
+  .contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .contact-links a {
+    padding: 10px 18px; border: 1px solid var(--border); border-radius: 10px;
+    color: var(--text); font-size: 0.9rem; background: var(--bg2);
+  }
+  .contact-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+  footer {
+    text-align: center; padding: 40px 24px 56px;
+    color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  /* Reveal */
+  .reveal {
+    opacity: 0; transform: translateY(22px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal.delay-1 { transition-delay: 0.1s; }
+  .reveal.delay-2 { transition-delay: 0.2s; }
+  .reveal.delay-3 { transition-delay: 0.3s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .orbit { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+</style>
 </head>
 <body>
-  <div class="min-h-screen bg-[#050505] selection:bg-[#FF4500] selection:text-white">
-    <!-- Global Noise Overlay -->
-    <div class="noise-overlay"></div>
 
-    <!-- Navigation -->
-    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-8">
-      <div class="container mx-auto px-6 flex flex-wrap items-center justify-between gap-4 nav-inner">
-        <a href="#" id="nav-logo-link" class="text-2xl font-bold tracking-tighter font-serif">
-          Vansh Bisht.
-        </a>
-
-        <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/15 text-white/80 hover:text-white hover:border-white/30 transition" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation">
-          <span class="sr-only">Toggle navigation</span>
-          <iconify-icon icon="lucide:menu" class="text-xl"></iconify-icon>
-        </button>
-
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="#about" id="nav-expertise-link" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">About</a>
-          <a href="#skills" id="nav-skills-link" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">Skills</a>
-          <a href="#works" id="nav-works-link" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">Projects</a>
-          <a href="#experience" id="nav-experience-link" class="text-sm text-gray-400 hover:text-white transition-colors duration-300">Experience</a>
-        </div>
-
-        <a href="mailto:Bishtvansh491@gmail.com" id="nav-cta-link" class="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-medium bg-white text-black hover:scale-105 hover:bg-gray-100 transition-all duration-300">
-          HIRE ME ↗
-        </a>
-      </div>
-
-      <div id="mobile-menu" class="mobile-menu md:hidden" aria-hidden="true">
-        <a href="#about" class="mobile-menu__link">About</a>
-        <a href="#skills" class="mobile-menu__link">Skills</a>
-        <a href="#works" class="mobile-menu__link">Projects</a>
-        <a href="#experience" class="mobile-menu__link">Experience</a>
-        <a href="#contact" class="mobile-menu__link">Contact</a>
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20 bg-[#050505]">
-      <!-- 3D Tubes Background -->
-      <div id="tubes-hero" class="absolute inset-0 z-0">
-        <canvas id="tubes-canvas" class="absolute inset-0 w-full h-full block" style="touch-action: none;"></canvas>
-      </div>
-      <!-- Background Atmosphere -->
-      <div class="absolute inset-0 z-0 pointer-events-none select-none">
-        <div class="absolute top-0 left-0 w-full h-full opacity-60 mix-blend-screen">
-          <img src="https://framerusercontent.com/images/9zvwRJAavKKacVyhFCwHyXW1U.png?width=1536&height=1024" alt="Atmosphere" class="w-full h-full object-cover object-center opacity-80">
-        </div>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050505] z-10"></div>
-      </div>
-
-      <!-- Floating Surrealist Elements -->
-      <div class="absolute -left-[10%] top-[-10%] md:left-[-5%] md:top-[-15%] w-[50vw] md:w-[40vw] max-w-[800px] z-10 pointer-events-none mix-blend-hard-light opacity-80 animate-float-left hero-float">
-        <img src="https://framerusercontent.com/images/KNhiA5A2ykNYqNkj04Hk6BVg5A.png?width=1540&height=1320" alt="Hand Reaching" class="w-full h-auto object-contain">
-      </div>
-
-      <div class="absolute -right-[10%] bottom-[-10%] md:right-[-5%] md:bottom-[-5%] w-[45vw] md:w-[35vw] max-w-[700px] z-10 pointer-events-none mix-blend-hard-light opacity-80 animate-float-right hero-float">
-        <img src="https://framerusercontent.com/images/X89VFCABCEjjZ4oLGa3PjbOmsA.png?width=1542&height=1002" alt="Hand Receiving" class="w-full h-auto object-contain">
-      </div>
-
-      <!-- Hero Content -->
-      <div class="container mx-auto px-6 relative z-20 text-center flex flex-col items-center justify-center h-full">
-        <div id="hero-content-wrapper" class="max-w-4xl mx-auto">
-          <div class="reveal">
-            <h1 class="hero-title text-5xl md:text-7xl font-medium leading-[1.1] tracking-tight mb-6 text-[#ffe0e0] mix-blend-overlay font-serif"
-                style="text-shadow: 0 0 12px rgba(255,255,255,0.71);">
-              Vansh <br>
-              <span class="italic font-light text-[#ffe0e0]">Bisht</span>
-            </h1>
-          </div>
-
-          <div class="reveal" style="transition-delay: 200ms;">
-            <p class="hero-subtitle text-base md:text-lg text-[#ffe0e0]/90 max-w-lg mx-auto mb-16 font-light tracking-wide leading-relaxed mix-blend-overlay"
-               style="text-shadow: 0 0 12px rgba(255,255,255,0.71);">
-              Building responsive, user-friendly digital experiences using modern web technologies. Passionate about clean code and pixel-perfect interfaces.
-            </p>
-          </div>
-
-          <div class="reveal flex flex-col items-center gap-6" style="transition-delay: 400ms;">
-            <div class="relative group cursor-pointer">
-              <div class="absolute inset-0 bg-[#FF4500]/20 blur-xl rounded-full opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
-              <div class="relative border border-white/20 bg-white/5 backdrop-blur-sm px-6 py-2 rounded-full flex items-center gap-3 text-xs md:text-sm text-white/80 uppercase tracking-widest hover:bg-white/10 transition-colors duration-300">
-                <span>Web Developer · Chandigarh, IN</span>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-4 text-[10px] md:text-xs text-white/40 uppercase tracking-widest mt-8 font-mono">
-              <span id="current-time">11:11 PM</span>
-              <span class="w-px h-3 bg-white/20"></span>
-              <span>HTML5 · CSS3 · JS</span>
-            </div>
-            <div class="flex items-center gap-4 text-[10px] md:text-xs text-white/40 uppercase tracking-widest mt-2 font-mono">
-              <span>Bootstrap · Tailwind</span>
-              <span class="w-px h-3 bg-white/20"></span>
-              <span>Git · MySQL · Python</span>
-            </div>
-            <div class="text-[10px] md:text-xs text-white/40 uppercase tracking-widest mt-2 font-mono">
-              B.Tech CSE · Graphic Era University · 2026
-            </div>
-            <div class="flex items-center gap-4 text-[10px] md:text-xs text-white/60 uppercase tracking-widest mt-6 font-mono pointer-events-auto">
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" class="hover:text-white transition-colors">LinkedIn</a>
-              <span class="w-px h-3 bg-white/20"></span>
-              <a href="https://github.com/" target="_blank" rel="noreferrer" class="hover:text-white transition-colors">GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mission Section -->
-    <section id="about" class="py-32 relative">
-      <div class="container mx-auto px-6">
-        <div class="max-w-5xl mx-auto grid gap-12 md:grid-cols-2 items-end">
-          <div class="reveal">
-            <p class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">about.25</p>
-            <h2 class="text-4xl md:text-6xl leading-tight text-white/90 mt-6 font-serif">
-              ABOUT <br>
-              <span class="italic">me.</span>
-            </h2>
-          </div>
-          <div class="reveal">
-            <p class="text-lg md:text-xl text-gray-400 leading-relaxed font-light">
-              Motivated Web Developer with hands-on experience building responsive and user-friendly websites. Strong foundation in problem-solving and eager to learn modern frameworks and real-world development practices. Passionate about writing clean code and delivering great user experiences.
-            </p>
-            <div class="grid grid-cols-3 gap-6 mt-10 border-t border-white/10 pt-8 stats-grid">
-              <div>
-                <div class="text-3xl font-semibold text-white">02+</div>
-                <div class="text-xs tracking-[0.2em] text-white/40 uppercase font-mono mt-2">Projects</div>
-              </div>
-              <div>
-                <div class="text-3xl font-semibold text-white">08+</div>
-                <div class="text-xs tracking-[0.2em] text-white/40 uppercase font-mono mt-2">Technologies</div>
-              </div>
-              <div>
-                <div class="text-3xl font-semibold text-white">2026</div>
-                <div class="text-xs tracking-[0.2em] text-white/40 uppercase font-mono mt-2">Graduating</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Cards Section -->
-    <section id="works" class="py-40 relative overflow-hidden">
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="reveal mb-32">
-          <h2 class="text-5xl md:text-7xl text-center font-serif">
-            Projects <br>
-            <span class="italic">work</span>
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <!-- Project 1 -->
-          <div class="parallax-card-down">
-            <div class="reveal bg-[#FF4500] rounded-3xl p-8 md:p-12 aspect-[4/5] flex flex-col justify-between shadow-2xl hover:shadow-[0_20px_50px_rgba(255,69,0,0.3)] transition-all duration-500 group cursor-pointer project-card">
-              <div class="flex justify-between items-start">
-                <div class="w-12 h-12 rounded-full bg-black/10 flex items-center justify-center group-hover:rotate-45 transition-transform duration-500">
-                  <iconify-icon icon="lucide:star" class="text-black text-2xl"></iconify-icon>
-                </div>
-                <span class="text-black font-medium text-sm border border-black/20 px-3 py-1 rounded-full">01</span>
-              </div>
-
-              <div>
-                <h3 class="text-4xl md:text-5xl text-black mb-4 leading-none tracking-tight font-serif">
-                  Amazon <br>Clone
-                </h3>
-                <p class="text-black/70 text-lg leading-snug">
-                  Built Amazon-inspired e-commerce UI with full responsiveness. Designed navbar, banners, product listings & footer.
-                </p>
-                <p class="text-black/70 text-sm mt-4 uppercase tracking-widest font-mono">
-                  HTML5 · CSS3 · JavaScript · Bootstrap
-                </p>
-              </div>
-
-              <div class="w-full h-px bg-black/10 mt-8"></div>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="parallax-card-up md:mt-24">
-            <div class="reveal bg-[#111] border border-white/10 rounded-3xl p-8 md:p-12 aspect-[4/5] flex flex-col justify-between shadow-2xl group cursor-pointer hover:border-[#FF4500]/50 transition-all duration-500 project-card" style="transition-delay: 150ms;">
-              <div class="flex justify-between items-start">
-                <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                  <iconify-icon icon="lucide:arrow-right" class="text-white text-2xl -rotate-45"></iconify-icon>
-                </div>
-                <span class="text-white/50 font-medium text-sm border border-white/10 px-3 py-1 rounded-full">02</span>
-              </div>
-
-              <div>
-                <h3 class="text-4xl md:text-5xl text-white mb-4 leading-none tracking-tight font-serif">
-                  Responsive <br>UI Pages
-                </h3>
-                <p class="text-gray-400 text-lg leading-snug">
-                  Developed responsive pages with clean layouts, hover effects, and cross-browser compatibility.
-                </p>
-                <p class="text-gray-400 text-sm mt-4 uppercase tracking-widest font-mono">
-                  HTML5 · CSS3 · JS · Git
-                </p>
-              </div>
-
-              <div class="w-full h-px bg-white/10 mt-8"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Background Pattern -->
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-10 pointer-events-none"
-           style="background-image: radial-gradient(circle, #333 1px, transparent 1px); background-size: 40px 40px;">
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-32 relative">
-      <div class="container mx-auto px-6">
-        <div class="flex items-end justify-between gap-6 mb-16">
-          <div class="reveal">
-            <p class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">skills.expertise</p>
-            <h2 class="text-4xl md:text-6xl text-white/90 mt-6 font-serif">Skills</h2>
-          </div>
-          <div class="reveal text-xs tracking-[0.2em] text-white/40 uppercase font-mono">(11 TECHNOLOGIES)</div>
-        </div>
-
-        <div class="grid gap-px bg-white/10 md:grid-cols-4 reveal">
-          <div class="bg-[#111] p-8">
-            <div class="text-xs text-white/40 font-mono">01</div>
-            <div class="text-white font-mono mt-6">HTML5 / CSS3</div>
-            <div class="text-white/50 text-sm mt-2">Markup & Styling</div>
-          </div>
-          <div class="bg-[#111] p-8">
-            <div class="text-xs text-white/40 font-mono">02</div>
-            <div class="text-white font-mono mt-6">JavaScript</div>
-            <div class="text-white/50 text-sm mt-2">ES6 Basics</div>
-          </div>
-          <div class="bg-[#111] p-8">
-            <div class="text-xs text-white/40 font-mono">03</div>
-            <div class="text-white font-mono mt-6">Bootstrap</div>
-            <div class="text-white/50 text-sm mt-2">UI Framework</div>
-          </div>
-          <div class="bg-[#111] p-8">
-            <div class="text-xs text-white/40 font-mono">04</div>
-            <div class="text-white font-mono mt-6">Tailwind CSS</div>
-            <div class="text-white/50 text-sm mt-2">Utility Framework</div>
-          </div>
-          <div class="bg-[#111] p-8">
-            <div class="text-xs text-white/40 font-mono">05</div>
-            <div class="text-white font-mono mt-6">Git & GitHub</div>
-            <div class="text-white/50 text-sm mt-2">Version Control</div>
-          </div>
-          <div class="bg-[#111] p-8">
-            <div class="text-xs text-white/40 font-mono">06</div>
-            <div class="text-white font-mono mt-6">Python</div>
-            <div class="text-white/50 text-sm mt-2">Scripting & Logic</div>
-          </div>
-          <div class="bg-[#111] p-8">
-            <div class="text-xs text-white/40 font-mono">07</div>
-            <div class="text-white font-mono mt-6">MySQL</div>
-            <div class="text-white/50 text-sm mt-2">Database</div>
-          </div>
-          <div class="bg-[#111] p-8">
-            <div class="text-xs text-white/40 font-mono">08</div>
-            <div class="text-white font-mono mt-6">PHP / Node.js</div>
-            <div class="text-white/50 text-sm mt-2">Backend Basics</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-32 relative">
-      <div class="container mx-auto px-6">
-        <div class="reveal">
-          <p class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">experience.work</p>
-          <h2 class="text-4xl md:text-6xl text-white/90 mt-6 font-serif">Experience</h2>
-        </div>
-
-        <div class="grid gap-8 md:grid-cols-2 mt-16">
-          <div class="reveal border border-white/10 p-10">
-            <div class="text-xs text-white/40 font-mono">01 / WORK</div>
-            <div class="text-2xl text-white font-mono mt-6">Frontend Developer</div>
-            <div class="text-sm text-[#FF4500] font-mono mt-2">Graphic Era Hill University · 2024</div>
-            <ul class="text-white/60 text-sm leading-relaxed mt-6 space-y-3">
-              <li>Developed responsive web pages using HTML, CSS & JavaScript</li>
-              <li>Created interactive UI components and improved page layouts</li>
-              <li>Implemented basic form validation and client-side logic</li>
-              <li>Used Git & GitHub for version control and project management</li>
-              <li>Collaborated with peers on mini projects and assignments</li>
-            </ul>
-          </div>
-          <div class="reveal border border-white/10 p-10">
-            <div class="text-xs text-white/40 font-mono">02 / PROJECT</div>
-            <div class="text-2xl text-white font-mono mt-6">Amazon Clone</div>
-            <div class="text-sm text-[#FF4500] font-mono mt-2">Frontend Web Dev · Personal Project</div>
-            <ul class="text-white/60 text-sm leading-relaxed mt-6 space-y-3">
-              <li>Built Amazon-inspired e-commerce UI with full responsiveness</li>
-              <li>Designed navbar, banners, product listings & footer</li>
-              <li>Product cards with hover effects and basic cart UI</li>
-              <li>Mobile-first, cross-browser compatible build</li>
-              <li>Followed clean code & modular CSS structure</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="py-32 bg-[#0a0a0a]">
-      <div class="container mx-auto px-6">
-        <div class="reveal">
-          <p class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">education.background</p>
-          <h2 class="text-4xl md:text-6xl text-white/90 mt-6 font-serif">Education</h2>
-        </div>
-
-        <div class="grid gap-px bg-white/10 md:grid-cols-3 mt-16">
-          <div class="bg-[#111] p-10 reveal">
-            <div class="text-xs text-white/40 font-mono">2022 — 2026</div>
-            <div class="text-lg text-white font-mono mt-6">Graphic Era University</div>
-            <div class="text-sm text-white/50 mt-2">Bachelor of Technology<br>Computer Science Engineering</div>
-            <div class="text-xs tracking-[0.2em] text-[#FF4500] uppercase font-mono mt-6">B.TECH · CSE</div>
-          </div>
-          <div class="bg-[#111] p-10 reveal">
-            <div class="text-xs text-white/40 font-mono">2021</div>
-            <div class="text-lg text-white font-mono mt-6">St. Kabeer Academy</div>
-            <div class="text-sm text-white/50 mt-2">Senior Secondary Education<br>Class XII</div>
-            <div class="text-xs tracking-[0.2em] text-[#FF4500] uppercase font-mono mt-6">CBSE · CLASS XII</div>
-          </div>
-          <div class="bg-[#111] p-10 reveal">
-            <div class="text-xs text-white/40 font-mono">2019</div>
-            <div class="text-lg text-white font-mono mt-6">St. Kabeer Academy</div>
-            <div class="text-sm text-white/50 mt-2">Secondary Education<br>Class X</div>
-            <div class="text-xs tracking-[0.2em] text-[#FF4500] uppercase font-mono mt-6">CBSE · CLASS X</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Hobbies Section -->
-    <section class="py-20 border-t border-white/5">
-      <div class="container mx-auto px-6 reveal">
-        <div class="flex flex-wrap items-center gap-6">
-          <span class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">interests</span>
-          <div class="flex flex-wrap gap-3">
-            <span class="px-4 py-2 border border-white/10 text-white/60 font-mono text-xs">Presentation Design</span>
-            <span class="px-4 py-2 border border-white/10 text-white/60 font-mono text-xs">Video Editing</span>
-            <span class="px-4 py-2 border border-white/10 text-white/60 font-mono text-xs">UI Trends</span>
-            <span class="px-4 py-2 border border-white/10 text-white/60 font-mono text-xs">Competitive Coding</span>
-            <span class="px-4 py-2 border border-white/10 text-white/60 font-mono text-xs">Volleyball</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-32 relative">
-      <div class="container mx-auto px-6 grid gap-12 md:grid-cols-2">
-        <div class="reveal">
-          <p class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">contact.25</p>
-          <h2 class="text-4xl md:text-6xl text-white/90 mt-6 font-serif">GET<br>IN<br><span class="italic">touch.</span></h2>
-          <div class="mt-10 space-y-4 text-white/70 font-mono">
-            <a href="mailto:Bishtvansh491@gmail.com" class="block hover:text-white transition-colors">Bishtvansh491@gmail.com</a>
-            <a href="tel:+918755629841" class="block hover:text-white transition-colors">+91 87556 29841</a>
-            <div class="text-xs tracking-[0.2em] text-white/40 uppercase">CHANDIGARH, INDIA</div>
-          </div>
-        </div>
-        <form id="contact-form" class="reveal" novalidate>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">First Name</label>
-              <input type="text" name="firstName" required placeholder="Your name" class="mt-2 w-full bg-transparent border-b border-white/10 py-3 text-white/80 outline-none">
-            </div>
-            <div>
-              <label class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">Last Name</label>
-              <input type="text" name="lastName" required placeholder="Last name" class="mt-2 w-full bg-transparent border-b border-white/10 py-3 text-white/80 outline-none">
-            </div>
-          </div>
-          <div class="mt-6">
-            <label class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">Email</label>
-            <input type="email" name="email" required placeholder="your@email.com" class="mt-2 w-full bg-transparent border-b border-white/10 py-3 text-white/80 outline-none">
-          </div>
-          <div class="mt-6">
-            <label class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">Phone</label>
-            <input type="tel" name="phone" placeholder="+91 00000 00000" class="mt-2 w-full bg-transparent border-b border-white/10 py-3 text-white/80 outline-none">
-          </div>
-          <div class="mt-6">
-            <label class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">Message</label>
-            <textarea name="message" required placeholder="Tell me about your project..." class="mt-2 w-full bg-transparent border-b border-white/10 py-3 text-white/80 outline-none h-28 resize-none"></textarea>
-          </div>
-          <div class="mt-8">
-            <div class="h-captcha" data-sitekey="01dc0850-cabc-4daa-8bdc-e3d816a65d6c"></div>
-          </div>
-          <button id="contact-submit" type="submit" class="mt-8 px-8 py-4 bg-white text-black text-xs uppercase tracking-[0.3em] font-mono">
-            SEND MESSAGE →
-          </button>
-          <p id="form-status" class="form-status mt-4 text-xs text-white/60 font-mono" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="py-20 border-t border-white/5 bg-[#050505] relative overflow-hidden">
-      <div class="container mx-auto px-6 relative z-10">
-        <div class="grid gap-12 md:grid-cols-4">
-          <div class="md:col-span-2">
-            <div class="text-3xl font-serif text-white">Vansh Bisht</div>
-            <p class="text-sm text-white/50 mt-4 max-w-md">Building responsive, user-friendly digital experiences. Passionate about clean code, modern UI, and learning every day.</p>
-          </div>
-          <div>
-            <div class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">Navigate</div>
-            <ul class="mt-4 space-y-2 text-sm text-white/50">
-              <li><a href="#about" class="hover:text-white">About</a></li>
-              <li><a href="#skills" class="hover:text-white">Skills</a></li>
-              <li><a href="#works" class="hover:text-white">Projects</a></li>
-              <li><a href="#experience" class="hover:text-white">Experience</a></li>
-              <li><a href="#contact" class="hover:text-white">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <div class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">Contact</div>
-            <ul class="mt-4 space-y-2 text-sm text-white/50">
-              <li><a href="mailto:Bishtvansh491@gmail.com" class="hover:text-white">Email</a></li>
-              <li><a href="tel:+918755629841" class="hover:text-white">+91 87556 29841</a></li>
-              <li>Chandigarh, India</li>
-            </ul>
-          </div>
-        </div>
-        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-12 pt-8 border-t border-white/5">
-          <span class="text-xs text-white/40 font-mono">©2025 VANSH BISHT. ALL RIGHTS RESERVED.</span>
-          <span class="text-xs text-white/40 font-mono">WEB DEVELOPER · B.TECH CSE 2026</span>
-        </div>
-      </div>
-    </footer>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">Vansh<span>.</span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">☰</button>
+    <div class="nav-links" id="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </div>
   </div>
+</nav>
 
-  <script src="script.js"></script>
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow reveal">Software Engineer · ProcMart</p>
+        <h1 class="reveal delay-1">Building clear UI<br>and solid <em>APIs</em>.</h1>
+        <p class="hero-lead reveal delay-2">
+          Frontend-focused engineer shipping responsive interfaces, redesigning product flows,
+          and pairing UI work with Node.js / Express backends.
+        </p>
+        <div class="hero-actions reveal delay-3">
+          <a class="btn btn-primary" href="#experience">See experience</a>
+          <a class="btn btn-ghost" href="mailto:Bishtvansh491@gmail.com">Email me</a>
+        </div>
+        <div class="hero-meta reveal delay-3">
+          <div class="meta-item">
+            <div class="num">8+</div>
+            <div class="lbl">months at ProcMart</div>
+          </div>
+          <div class="meta-item">
+            <div class="num">5–6</div>
+            <div class="lbl">product initiatives</div>
+          </div>
+          <div class="meta-item">
+            <div class="num">GEU</div>
+            <div class="lbl">B.Tech CSE · 2026</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual reveal delay-2">
+        <div class="orbit"></div>
+        <div class="orbit orbit-2"></div>
+        <div class="orbit orbit-3"></div>
+        <div class="avatar-ring"><span>VB</span></div>
+        <span class="chip chip-1">React / Vite</span>
+        <span class="chip chip-2">Node / Express</span>
+        <span class="chip chip-3">Uttarakhand</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2><span class="idx">01</span> About</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I’m <strong>Vansh Bisht</strong>, a Software Engineer focused on frontend UI/UX with
+            hands-on experience supporting Node.js/Express APIs. I redesign user flows, simplify
+            complex forms and data views, and ship clean production features.
+          </p>
+          <p>
+            At <strong>ProcMart</strong> I’ve worked across <strong>Kendra</strong> (React/Vite)
+            and <strong>procmart-api-v3</strong> — from the public seller quote (Goonj) to session
+            management, invoice APIs, and portal UX like Adhoc Reports.
+          </p>
+        </div>
+        <div class="info-card reveal delay-1">
+          <div class="info-row"><span class="k">Role</span><span class="v">Software Engineer</span></div>
+          <div class="info-row"><span class="k">Company</span><span class="v">ProcMart</span></div>
+          <div class="info-row"><span class="k">Location</span><span class="v">Uttarakhand</span></div>
+          <div class="info-row"><span class="k">Phone</span><span class="v">+91 8755629841</span></div>
+          <div class="info-row"><span class="k">Email</span><span class="v"><a href="mailto:Bishtvansh491@gmail.com">Bishtvansh491@gmail.com</a></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2><span class="idx">02</span> Experience</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="timeline">
+        <article class="job reveal">
+          <div class="job-top">
+            <h3>Software Engineer — <span class="org">ProcMart</span></h3>
+            <span class="when">Mar 2026 – Present</span>
+          </div>
+          <div class="badge">Paid Internship · 3 months + 3-month extension + 2-month extension</div>
+          <ul>
+            <li>Redesigned <a href="https://www.procmart.com" target="_blank" rel="noopener">procmart.com</a> end-to-end — visual hierarchy, responsiveness, and brand presentation.</li>
+            <li>Built the seller public quote (Goonj) UI on Kendra and matching Node.js API endpoints for HSN, KAM mapping, quote submit, and contract validation.</li>
+            <li>Implemented device-aware session management on the API (policy, audit logging, device tables) and session-takeover / profile updates on the portal.</li>
+            <li>Added REST APIs for invoice and adjustment-note management; integrated seller-requisition and quote-submission flows.</li>
+            <li>Built KAM email-to-vendor submission UX and portal forms to cut manual handoffs.</li>
+            <li>Redesigned Adhoc Reports and inner-portal modules (user info, data tables, chat) for clearer day-to-day scanning.</li>
+            <li>Shipped across Kendra and procmart-api-v3 on GitLab for 5–6 initiatives, pairing UI with backend API changes.</li>
+          </ul>
+        </article>
+        <article class="job reveal delay-1">
+          <div class="job-top">
+            <h3>Web Development Intern — <span class="org">Graphic Era Hill University</span></h3>
+            <span class="when">2024</span>
+          </div>
+          <ul>
+            <li>Built responsive pages with HTML, CSS, and JavaScript; interactive UI with client-side validation.</li>
+            <li>Used Git for version control and collaborated with peers on mini projects.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2><span class="idx">03</span> Projects</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects">
+        <article class="card reveal">
+          <div class="tag">PRODUCTION · PROCMART</div>
+          <h3>Goonj — Seller Public Quote</h3>
+          <p>Seller-facing quote UI on Kendra with Node APIs for HSN, KAM mapping, submit, and contract checks.</p>
+          <div class="tech-row">
+            <span class="pill">React</span><span class="pill">Vite</span><span class="pill">Node.js</span><span class="pill">Express</span>
+          </div>
+        </article>
+        <article class="card reveal delay-1">
+          <div class="tag">PRODUCTION · PROCMART</div>
+          <h3>procmart.com Redesign</h3>
+          <p>End-to-end marketing site redesign focused on hierarchy, mobile responsiveness, and brand clarity.</p>
+          <div class="tech-row">
+            <span class="pill">HTML/CSS</span><span class="pill">JavaScript</span><span class="pill">UI Redesign</span>
+          </div>
+          <a class="card-link" href="https://www.procmart.com" target="_blank" rel="noopener">Visit site →</a>
+        </article>
+        <article class="card reveal delay-2">
+          <div class="tag">PRODUCTION · PROCMART</div>
+          <h3>Session &amp; Invoice APIs</h3>
+          <p>Device-aware sessions, audit logging, and invoice / adjustment-note REST APIs wired into portal flows.</p>
+          <div class="tech-row">
+            <span class="pill">Express</span><span class="pill">Sequelize</span><span class="pill">MySQL</span>
+          </div>
+        </article>
+        <article class="card reveal delay-3">
+          <div class="tag">PERSONAL</div>
+          <h3>This Portfolio</h3>
+          <p>Scrollable single-page portfolio with sticky nav, reveal animations, and resume-aligned content.</p>
+          <div class="tech-row">
+            <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span>
+          </div>
+          <a class="card-link" href="https://vanshbishtbuild.github.io/MY-PORTFOLIO/" target="_blank" rel="noopener">Live demo →</a>
+        </article>
+        <article class="card reveal">
+          <div class="tag">ACADEMIC</div>
+          <h3>Amazon Clone — Frontend</h3>
+          <p>E-commerce inspired UI with product cards, navigation, cart UI, and mobile-first layout.</p>
+          <div class="tech-row">
+            <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span><span class="pill">Bootstrap</span>
+          </div>
+        </article>
+        <article class="card reveal delay-1">
+          <div class="tag">PRODUCTION · PROCMART</div>
+          <h3>Adhoc Reports &amp; Portal UX</h3>
+          <p>Redesigned reports, user info, data tables, and chat modules for faster scanning in daily workflows.</p>
+          <div class="tech-row">
+            <span class="pill">React</span><span class="pill">Vite</span><span class="pill">Portal UX</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2><span class="idx">04</span> Skills</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-wrap">
+        <div class="skill-group reveal">
+          <h3>Frontend</h3>
+          <div class="skill-tags">
+            <span class="skill">React</span><span class="skill">TypeScript</span><span class="skill">Vite</span>
+            <span class="skill">HTML5</span><span class="skill">CSS3</span><span class="skill">JavaScript (ES6)</span>
+            <span class="skill">Tailwind CSS</span><span class="skill">Bootstrap</span>
+          </div>
+        </div>
+        <div class="skill-group reveal delay-1">
+          <h3>Backend</h3>
+          <div class="skill-tags">
+            <span class="skill">Node.js</span><span class="skill">Express</span><span class="skill">REST APIs</span>
+            <span class="skill">Sequelize</span><span class="skill">MySQL</span><span class="skill">Form Handling</span>
+            <span class="skill">Basic PHP</span>
+          </div>
+        </div>
+        <div class="skill-group reveal delay-2">
+          <h3>UI / UX</h3>
+          <div class="skill-tags">
+            <span class="skill">UI Redesign</span><span class="skill">Portal UX</span>
+            <span class="skill">Data Tables &amp; Layout</span><span class="skill">Vendor / KAM Workflows</span>
+          </div>
+        </div>
+        <div class="skill-group reveal delay-3">
+          <h3>Tools</h3>
+          <div class="skill-tags">
+            <span class="skill">Git</span><span class="skill">GitLab</span><span class="skill">GitHub</span>
+            <span class="skill">VS Code</span><span class="skill">Python</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2><span class="idx">05</span> Education</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="edu-list">
+        <div class="edu reveal">
+          <div>
+            <h3>Graphic Era University</h3>
+            <div class="sub">B.Tech, Computer Science Engineering</div>
+          </div>
+          <div class="meta">2022 – 2026<br>CGPA 6.32/10</div>
+        </div>
+        <div class="edu reveal delay-1">
+          <div>
+            <h3>St Kabeer Academy</h3>
+            <div class="sub">Senior Secondary (Class XII), CBSE</div>
+          </div>
+          <div class="meta">2021 · 71.6%</div>
+        </div>
+        <div class="edu reveal delay-2">
+          <div>
+            <h3>St Kabeer Academy</h3>
+            <div class="sub">Secondary (Class X), CBSE</div>
+          </div>
+          <div class="meta">2019 · 72.4%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box reveal">
+        <h2><span class="idx">06</span> Let’s work together</h2>
+        <p>Open to roles and collaborations in frontend, full-stack web, and product UI. Reach out anytime.</p>
+        <div class="contact-links">
+          <a href="mailto:Bishtvansh491@gmail.com">Email</a>
+          <a href="tel:+918755629841">+91 8755629841</a>
+          <a href="https://github.com/vanshbishtbuild" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.procmart.com" target="_blank" rel="noopener">ProcMart</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© <span id="year"></span> Vansh Bisht · Built for GitHub Pages</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const nav = document.getElementById('nav');
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', links.classList.contains('open'));
+  });
+
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => links.classList.remove('open'));
+  });
+
+  const sections = [...document.querySelectorAll('section[id]')];
+  const navAnchors = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      navAnchors.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+      });
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+  sections.forEach(s => spy.observe(s));
+
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
 </body>
 </html>
