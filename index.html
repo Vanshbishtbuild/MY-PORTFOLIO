@@ -1,155 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-  <!-- Materialize - Compiled and minified CSS-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
-  <!-- Font Awesome Icon - CSS-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
-  <!-- Custom Styles (from varadbhogayata/varadbhogayata.github.io) -->
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <title>Vansh Bisht | Software Engineer</title>
-
-  <!-- Open Graph-->
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Vansh Bisht | Software Engineer" />
-  <meta property="og:description" content="Software Engineer focused on frontend UI/UX, React/Vite, and Node.js/Express APIs." />
-  <meta property="og:url" content="https://vanshbishtbuild.github.io/MY-PORTFOLIO/" />
-  <meta property="og:site_name" content="Vansh Bisht | Software Engineer" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Vansh Bisht | Software Engineer" />
-  <meta name="twitter:description" content="Frontend UI/UX + Node.js APIs. Building production features at ProcMart." />
-  <meta name="author" content="Vansh Bisht" />
-  <meta name="description" content="Software Engineer focused on frontend UI/UX, with hands-on experience building responsive interfaces and supporting Node.js/Express APIs." />
-  <link rel="icon" type="image/svg+xml" href="assets/img/profile.svg" />
-  <meta name="theme-color" content="#00897b" />
-  <meta name="robots" content="index, follow" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vansh Bisht — Software Engineer</title>
+  <meta name="description" content="Vansh Bisht — Software Engineer at ProcMart. Frontend UI/UX, React/Vite, Node.js/Express.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <!-- Navigation Menu - template structure from varadbhogayata -->
-  <nav class="hide-on-small-only">
-    <ul class="side-nav fixed section table-of-contents">
+  <div class="min-h-screen bg-[#050505] selection:bg-[#FF4500] selection:text-white">
+    <!-- Global Noise Overlay -->
+    <div class="noise-overlay"></div>
 
-      <li class="logo">
-        <a id="logo-container" aria-label="Navigate to the beginning of the page" href="#intro"
-          class="brand-logo grey-blue-text">
-          <img src="assets/img/profile.svg" class="circle img-responsive profile-pic" alt="Vansh Bisht">
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-8">
+      <div class="container mx-auto px-6 flex flex-wrap items-center justify-between gap-4 nav-inner">
+        <a href="#" id="nav-logo-link" class="text-2xl font-bold tracking-tighter font-serif">
+          Vansh Bisht.
         </a>
-      </li>
 
-      <li class="bold">
-        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-person small"></i><span>About</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Experience section" href="#experience"
-          class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-trending-up small"></i><span>Experience</span></a>
-      </li>
+        <button id="nav-toggle" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/15 text-white/80 hover:text-white hover:border-white/30 transition" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <iconify-icon icon="lucide:menu" class="text-xl"></iconify-icon>
+        </button>
 
-      <li class="bold">
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
-      </li>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#about" class="nav-link text-sm text-gray-400 hover:text-white transition-colors duration-300">About</a>
+          <a href="#skills" class="nav-link text-sm text-gray-400 hover:text-white transition-colors duration-300">Skills</a>
+          <a href="#works" class="nav-link text-sm text-gray-400 hover:text-white transition-colors duration-300">Projects</a>
+          <a href="#experience" class="nav-link text-sm text-gray-400 hover:text-white transition-colors duration-300">Experience</a>
+          <a href="#contact" class="nav-link text-sm text-gray-400 hover:text-white transition-colors duration-300">Contact</a>
+        </div>
 
-      <li class="bold">
-        <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-assessment small"></i><span>Skills</span></a>
-      </li>
+        <a href="mailto:Bishtvansh491@gmail.com" id="nav-cta-link" class="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-medium bg-white text-black hover:scale-105 hover:bg-gray-100 transition-all duration-300">
+          HIRE ME ↗
+        </a>
+      </div>
 
-      <li class="bold">
-        <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-school small"></i><span>Education</span></a>
-      </li>
+      <div id="mobile-menu" class="mobile-menu md:hidden" aria-hidden="true">
+        <a href="#about" class="mobile-menu__link">About</a>
+        <a href="#skills" class="mobile-menu__link">Skills</a>
+        <a href="#works" class="mobile-menu__link">Projects</a>
+        <a href="#experience" class="mobile-menu__link">Experience</a>
+        <a href="#contact" class="mobile-menu__link">Contact</a>
+      </div>
+    </nav>
 
-      <li class="bold">
-        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
-            class="mdi-content-mail small"></i><span>Contact</span></a>
-      </li>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-20 bg-[#050505]">
+      <div id="tubes-hero" class="absolute inset-0 z-0">
+        <canvas id="tubes-canvas" class="absolute inset-0 w-full h-full block" style="touch-action: none;"></canvas>
+      </div>
+      <div class="absolute inset-0 z-0 pointer-events-none select-none">
+        <div class="absolute top-0 left-0 w-full h-full opacity-60 mix-blend-screen">
+          <img src="https://framerusercontent.com/images/9zvwRJAavKKacVyhFCwHyXW1U.png?width=1536&height=1024" alt="" class="w-full h-full object-cover object-center opacity-80">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#050505] z-10"></div>
+      </div>
 
-      <li class="bold">
-        <a aria-label="Open Vansh's portfolio resume" href="mailto:Bishtvansh491@gmail.com"
-          class="waves-effect waves-dark teal-text"><i
-            class="mdi-file-folder-open small"></i><span>Resume</span></a>
-      </li>
-    </ul>
-  </nav>
+      <div class="absolute -left-[10%] top-[-10%] md:left-[-5%] md:top-[-15%] w-[50vw] md:w-[40vw] max-w-[800px] z-10 pointer-events-none mix-blend-hard-light opacity-80 animate-float-left hero-float">
+        <img src="https://framerusercontent.com/images/KNhiA5A2ykNYqNkj04Hk6BVg5A.png?width=1540&height=1320" alt="" class="w-full h-auto object-contain">
+      </div>
 
-  <!-- Navbar for small screens -->
-  <nav class="hide-on-large only">
-    <div class="nav-wrapper">
-      <a id="name" aria-label="Navigate to the beginning of the page" href="#" class="teal-text">Vansh
-        Bisht</a>
-      <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-    </div>
+      <div class="absolute -right-[10%] bottom-[-10%] md:right-[-5%] md:bottom-[-5%] w-[45vw] md:w-[35vw] max-w-[700px] z-10 pointer-events-none mix-blend-hard-light opacity-80 animate-float-right hero-float">
+        <img src="https://framerusercontent.com/images/X89VFCABCEjjZ4oLGa3PjbOmsA.png?width=1542&height=1002" alt="" class="w-full h-auto object-contain">
+      </div>
 
-    <ul id="slide-out" class="side-nav">
-      <li class="bold">
-        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-person small"></i><span>About</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Experience section" href="#experience"
-          class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-trending-up small"></i><span>Experience</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
-            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
-            class="mdi-action-assessment small"></i><span>Skills</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
-            class="mdi-social-school small"></i><span>Education</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
-            class="mdi-content-mail small"></i><span>Contact</span></a>
-      </li>
-      <li class="bold">
-        <a aria-label="Email for resume" href="mailto:Bishtvansh491@gmail.com" class="waves-effect waves-dark teal-text"><i
-            class="mdi-file-folder-open small"></i><span>Resume</span></a>
-      </li>
-    </ul>
-  </nav>
+      <div class="container mx-auto px-6 relative z-20 text-center flex flex-col items-center justify-center h-full">
+        <div id="hero-content-wrapper" class="max-w-4xl mx-auto">
+          <div class="reveal">
+            <h1 class="hero-title text-5xl md:text-7xl font-medium leading-[1.1] tracking-tight mb-6 text-[#ffe0e0] mix-blend-overlay font-serif"
+                style="text-shadow: 0 0 12px rgba(255,255,255,0.71);">
+              Vansh <br>
+              <span class="italic font-light text-[#ffe0e0]">Bisht</span>
+            </h1>
+          </div>
 
-  <!-- Main Content-->
-  <main>
-    <!-- First Section: Heading -->
-    <section id="intro" class="section scrollspy full-height">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="col-md-9">
-          <div class="content section-padding valign" style="margin-left: 10%; margin-top: 50px;">
-            <div class="caption">
-              <h2>Hi, I'm <span class="teal">Vansh Bisht.</span></h2>
-              <h5 style="color:#fff">A <span class="typing" style="font-weight: 300; color:#004d40"></span></h5>
-              <h5>Software Engineer focused on frontend UI/UX — redesigning flows, shipping responsive interfaces, and pairing UI with Node.js/Express APIs.</h5>
+          <div class="reveal" style="transition-delay: 200ms;">
+            <p class="hero-subtitle text-base md:text-lg text-[#ffe0e0]/90 max-w-lg mx-auto mb-16 font-light tracking-wide leading-relaxed mix-blend-overlay"
+               style="text-shadow: 0 0 12px rgba(255,255,255,0.71);">
+              Software Engineer shipping responsive UI, redesigning product flows, and pairing frontend work with Node.js / Express APIs at ProcMart.
+            </p>
+          </div>
+
+          <div class="reveal flex flex-col items-center gap-6" style="transition-delay: 400ms;">
+            <div class="relative group cursor-pointer">
+              <div class="absolute inset-0 bg-[#FF4500]/20 blur-xl rounded-full opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
+              <div class="relative border border-white/20 bg-white/5 backdrop-blur-sm px-6 py-2 rounded-full flex items-center gap-3 text-xs md:text-sm text-white/80 uppercase tracking-widest hover:bg-white/10 transition-colors duration-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Software Engineer · ProcMart · Uttarakhand</span>
+              </div>
             </div>
-            <div class="social">
-              <a href="https://github.com/vanshbishtbuild" target="_blank" rel="noopener noreferrer">
-                <button class="icon-btn github">
-                  <i class="fa fa-github"></i>
-                </button>
-              </a>
-              <a href="mailto:Bishtvansh491@gmail.com">
-                <button class="icon-btn linkedin">
-                  <i class="fa fa-envelope"></i>
-                </button>
-              </a>
+
+            <div class="flex items-center gap-4 text-[10px] md:text-xs text-white/40 uppercase tracking-widest mt-8 font-mono">
+              <span id="current-time">11:11 PM</span>
+              <span class="w-px h-3 bg-white/20"></span>
+              <span>React · TypeScript · Vite</span>
             </div>
-            <div class='buttons'>
-              <a href="#about" class="readme">Read More</a>
-              <a href="#contact" class="contactme">Contact Me</a>
+            <div class="flex items-center gap-4 text-[10px] md:text-xs text-white/40 uppercase tracking-widest mt-2 font-mono">
+              <span>Node.js · Express · MySQL</span>
+              <span class="w-px h-3 bg-white/20"></span>
+              <span>Git · GitLab · Tailwind</span>
+            </div>
+            <div class="text-[10px] md:text-xs text-white/40 uppercase tracking-widest mt-2 font-mono">
+              B.Tech CSE · Graphic Era University · 2026
+            </div>
+            <div class="flex items-center gap-4 text-[10px] md:text-xs text-white/60 uppercase tracking-widest mt-6 font-mono pointer-events-auto">
+              <a href="mailto:Bishtvansh491@gmail.com" class="hover:text-white transition-colors">Email</a>
+              <span class="w-px h-3 bg-white/20"></span>
+              <a href="https://github.com/vanshbishtbuild" target="_blank" rel="noreferrer" class="hover:text-white transition-colors">GitHub</a>
+              <span class="w-px h-3 bg-white/20"></span>
+              <a href="https://www.procmart.com" target="_blank" rel="noreferrer" class="hover:text-white transition-colors">ProcMart</a>
             </div>
           </div>
         </div>
@@ -157,467 +124,422 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="section scrollspy">
-      <h3 class="page-title white-text teal">About</h3>
-      <div class="container flow-text">
-        <p>
-          I am a Software Engineer focused on frontend UI/UX, with hands-on experience building responsive interfaces
-          and supporting Node.js/Express APIs. I redesign user flows, simplify complex forms and data views, and ship
-          clean, production-ready features for web applications.
-        </p>
-        <p>
-          Currently at <b>ProcMart</b> (paid internship with extensions), I work across <b>Kendra</b> (React/Vite) and
-          <b>procmart-api-v3</b> — including the seller public quote (Goonj), session management, invoice APIs, and portal UX such as Adhoc Reports.
-        </p>
-        <p>
-          <ul>
-            <li><b>Frontend:</b> React, TypeScript, Vite, HTML5, CSS3, JavaScript (ES6), Tailwind CSS, Bootstrap</li>
-            <li><b>Backend:</b> Node.js, Express, REST APIs, Sequelize, MySQL, Form Handling, Basic PHP</li>
-            <li><b>UI / UX:</b> UI Redesign, Portal UX, Data Tables &amp; Layout, Vendor/KAM Workflows</li>
-            <li><b>Tools:</b> Git, GitLab, GitHub, VS Code, Python</li>
-          </ul>
-        </p>
-        <p>
-          Based in Uttarakhand. Open to roles and collaborations in frontend, full-stack web, and product UI.
-        </p>
-      </div>
-    </section>
-
-    <!-- Experience -->
-    <section id="experience" class="section scrollspy">
-      <h3 class="page-title white-text teal">Experience</h3>
-      <div class="container">
-
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12 m2">
-                <a href="https://www.procmart.com" target="_blank" rel="noopener noreferrer">
-                  <img alt="ProcMart" src="assets/img/nodejs.png" class="responsive-img center-block" />
-                </a>
+    <section id="about" class="py-32 relative">
+      <div class="container mx-auto px-6">
+        <div class="max-w-5xl mx-auto grid gap-12 md:grid-cols-2 items-end">
+          <div class="reveal">
+            <p class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">about.26</p>
+            <h2 class="text-4xl md:text-6xl leading-tight text-white/90 mt-6 font-serif">
+              ABOUT <br>
+              <span class="italic">me.</span>
+            </h2>
+          </div>
+          <div class="reveal">
+            <p class="text-lg md:text-xl text-gray-400 leading-relaxed font-light">
+              Software Engineer focused on frontend UI/UX, with hands-on experience building responsive interfaces and supporting Node.js/Express APIs. I redesign user flows, simplify complex forms and data views, and ship clean, production-ready features across Kendra and procmart-api-v3.
+            </p>
+            <div class="grid grid-cols-3 gap-6 mt-10 border-t border-white/10 pt-8 stats-grid">
+              <div>
+                <div class="text-3xl font-semibold text-white">08+</div>
+                <div class="text-xs tracking-[0.2em] text-white/40 uppercase font-mono mt-2">Months @ ProcMart</div>
               </div>
-              <div class="col s12 m10">
-                <p>
-                  <span class="card-title"><a href="https://www.procmart.com" target="_blank" rel="noopener noreferrer"
-                      class="teal-text hoverline">ProcMart</a></span>
-                </p>
+              <div>
+                <div class="text-3xl font-semibold text-white">05–6</div>
+                <div class="text-xs tracking-[0.2em] text-white/40 uppercase font-mono mt-2">Initiatives</div>
+              </div>
+              <div>
+                <div class="text-3xl font-semibold text-white">2026</div>
+                <div class="text-xs tracking-[0.2em] text-white/40 uppercase font-mono mt-2">Graduating</div>
               </div>
             </div>
-            <div class="role brown-text text-darken-2">Software Engineer</div>
-            <p class="brown-text text-darken-1" style="margin-top:0;"><small>Paid Internship (3 months + 3-month extension + 2-month extension)</small></p>
-            <ul>
-              <li>
-                Redesigned <a href="https://www.procmart.com" target="_blank" rel="noopener noreferrer">procmart.com</a> end-to-end, improving visual hierarchy, responsiveness, and brand presentation.
-              </li>
-              <li>
-                Built the seller public quote (Goonj) UI on Kendra and developed matching Node.js API endpoints for HSN, KAM mapping, quote submit, and contract validation.
-              </li>
-              <li>
-                Implemented device-aware session management on the API (session policy, audit logging, device tables) and session-takeover / user-profile updates on the portal.
-              </li>
-              <li>
-                Added and enhanced REST APIs for invoice and adjustment-note management; integrated frontend flows with seller-requisition and quote-submission services.
-              </li>
-              <li>
-                Built KAM email-to-vendor submission UX and related portal forms to cut manual handoffs in vendor communication.
-              </li>
-              <li>
-                Redesigned Adhoc Reports and other inner-portal modules (user info, data tables, chat) to simplify scanning and day-to-day UX.
-              </li>
-              <li>
-                Worked across Kendra and procmart-api-v3 on GitLab for 5–6 initiatives, pairing UI delivery with backend API changes.
-              </li>
-              <li>
-                <b>Tools:</b> React, Vite, TypeScript, Node.js, Express, Sequelize, MySQL, GitLab
-              </li>
-            </ul>
-          </div>
-          <div class="card-action">
-            <span>Mar 2026 – Present | Uttarakhand, India</span>
           </div>
         </div>
-
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12 m2">
-                <img alt="GEHU" src="assets/img/html5.png" class="responsive-img center-block" />
-              </div>
-              <div class="col s12 m10">
-                <p>
-                  <span class="card-title"><a href="#experience" class="teal-text hoverline">Graphic Era Hill University</a></span>
-                </p>
-              </div>
-            </div>
-            <div class="role brown-text text-darken-2">Web Development Intern / Academic Projects</div>
-            <ul>
-              <li>
-                Developed responsive web pages using HTML, CSS, and JavaScript; built interactive UI with client-side validation.
-              </li>
-              <li>
-                Used Git for version control and collaborated with peers on mini projects.
-              </li>
-              <li>
-                <b>Tools:</b> HTML5, CSS3, JavaScript, Git
-              </li>
-            </ul>
-          </div>
-          <div class="card-action">
-            <span>2024 | India</span>
-          </div>
-        </div>
-
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="section scrollspy">
-      <h3 class="page-title white-text teal">Projects</h3>
-      <div class="container">
-        <div class="row">
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Goonj seller quote" src="assets/img/project-blog-logo.jpg" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Goonj — Seller Quote<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  Seller public quote UI on Kendra with matching Node APIs
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> React, Vite, Node.js, Express</li>
-                  <li>HSN lookup, KAM mapping, quote submit, contract validation.</li>
-                  <li>Shipped as part of ProcMart Kendra + procmart-api-v3.</li>
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit ProcMart" href="https://www.procmart.com" target="_blank" rel="noopener noreferrer"
-                    data-position="top" data-tooltip="ProcMart"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-external-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="procmart.com redesign" src="assets/img/javascript.png" style="height: 100%; width: 100%; object-fit: cover;" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">procmart.com Redesign<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  End-to-end marketing site redesign for hierarchy and mobile
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> HTML/CSS, JavaScript, UI Redesign</li>
-                  <li>Improved visual hierarchy, responsiveness, and brand presentation.</li>
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Visit procmart.com" href="https://www.procmart.com" target="_blank" rel="noopener noreferrer"
-                    data-position="top" data-tooltip="Live site"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-external-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Session and invoice APIs" src="assets/img/mysql-logo-1.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Session &amp; Invoice APIs<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  Device-aware sessions and invoice REST APIs for the portal
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> Express, Sequelize, MySQL</li>
-                  <li>Session policy, audit logging, device tables.</li>
-                  <li>Invoice and adjustment-note management APIs.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Adhoc Reports" src="assets/img/css3.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Adhoc Reports UX<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  Portal modules redesigned for faster day-to-day scanning
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> React, Vite, Portal UX</li>
-                  <li>Reports, user info, data tables, and chat modules.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Portfolio website" src="assets/img/project-music-player.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Personal Portfolio<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  Scrollable GitHub Pages portfolio based on a popular template
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> HTML5, CSS3, JavaScript, Materialize</li>
-                  <li>Side-nav scrollspy sections with typed.js hero.</li>
-                  <li>Based on <a href="https://github.com/varadbhogayata/varadbhogayata.github.io" target="_blank" rel="noopener noreferrer">varadbhogayata.github.io</a> (MIT).</li>
-                </ul>
-                <div class="card-action">
-                  <a aria-label="Live portfolio" href="https://vanshbishtbuild.github.io/MY-PORTFOLIO/" target="_blank" rel="noopener noreferrer"
-                    data-position="top" data-tooltip="Live Demo"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-external-link"></i></a>
-                  <a aria-label="GitHub repo" href="https://github.com/vanshbishtbuild/MY-PORTFOLIO" target="_blank" rel="noopener noreferrer"
-                    data-position="top" data-tooltip="View Source"
-                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-                      class="fa fa-github"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col s12 m6 l4">
-            <div class="card medium">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img alt="Amazon Clone" src="assets/img/bootstrap.png" style="height: 100%; width: 100%" class="activator" />
-              </div>
-              <div class="card-content">
-                <span class="card-title activator teal-text hoverline">Amazon Clone — Frontend<i
-                    class="mdi-navigation-more-vert right"></i></span>
-                <p>
-                  E-commerce inspired UI with cart and mobile-first layout
-                </p>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text"><small>Accomplishments</small><i
-                    class="mdi-navigation-close right"></i></span>
-                <ul>
-                  <li><b>Tools:</b> HTML5, CSS3, JavaScript, Bootstrap</li>
-                  <li>Product cards, navigation, cart UI, responsive build.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
+    <section id="works" class="py-40 relative overflow-hidden">
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="reveal mb-32">
+          <h2 class="text-5xl md:text-7xl text-center font-serif">
+            Projects <br>
+            <span class="italic">work</span>
+          </h2>
         </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div class="parallax-card-down">
+            <a href="https://www.procmart.com" target="_blank" rel="noreferrer" class="block reveal bg-[#FF4500] rounded-3xl p-8 md:p-12 aspect-[4/5] flex flex-col justify-between shadow-2xl hover:shadow-[0_20px_50px_rgba(255,69,0,0.3)] transition-all duration-500 group cursor-pointer project-card">
+              <div class="flex justify-between items-start">
+                <div class="w-12 h-12 rounded-full bg-black/10 flex items-center justify-center group-hover:rotate-45 transition-transform duration-500">
+                  <iconify-icon icon="lucide:quote" class="text-black text-2xl"></iconify-icon>
+                </div>
+                <span class="text-black font-medium text-sm border border-black/20 px-3 py-1 rounded-full">01</span>
+              </div>
+              <div>
+                <h3 class="text-4xl md:text-5xl text-black mb-4 leading-none tracking-tight font-serif">
+                  Goonj <br>Seller Quote
+                </h3>
+                <p class="text-black/70 text-lg leading-snug">
+                  Seller public quote UI on Kendra with Node APIs for HSN, KAM mapping, quote submit, and contract validation.
+                </p>
+                <p class="text-black/70 text-sm mt-4 uppercase tracking-widest font-mono">
+                  React · Vite · Node.js · Express
+                </p>
+              </div>
+              <div class="w-full h-px bg-black/10 mt-8"></div>
+            </a>
+          </div>
+
+          <div class="parallax-card-up md:mt-24">
+            <a href="https://www.procmart.com" target="_blank" rel="noreferrer" class="block reveal bg-[#111] border border-white/10 rounded-3xl p-8 md:p-12 aspect-[4/5] flex flex-col justify-between shadow-2xl group cursor-pointer hover:border-[#FF4500]/50 transition-all duration-500 project-card" style="transition-delay: 150ms;">
+              <div class="flex justify-between items-start">
+                <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <iconify-icon icon="lucide:arrow-right" class="text-white text-2xl -rotate-45"></iconify-icon>
+                </div>
+                <span class="text-white/50 font-medium text-sm border border-white/10 px-3 py-1 rounded-full">02</span>
+              </div>
+              <div>
+                <h3 class="text-4xl md:text-5xl text-white mb-4 leading-none tracking-tight font-serif">
+                  procmart.com <br>Redesign
+                </h3>
+                <p class="text-gray-400 text-lg leading-snug">
+                  End-to-end marketing site redesign — visual hierarchy, responsiveness, and brand presentation.
+                </p>
+                <p class="text-gray-400 text-sm mt-4 uppercase tracking-widest font-mono">
+                  HTML · CSS · JavaScript · UI
+                </p>
+              </div>
+              <div class="w-full h-px bg-white/10 mt-8"></div>
+            </a>
+          </div>
+
+          <div class="parallax-card-down">
+            <div class="reveal bg-[#111] border border-white/10 rounded-3xl p-8 md:p-12 aspect-[4/5] flex flex-col justify-between shadow-2xl group hover:border-[#FF4500]/50 transition-all duration-500 project-card" style="transition-delay: 100ms;">
+              <div class="flex justify-between items-start">
+                <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <iconify-icon icon="lucide:shield" class="text-white text-2xl"></iconify-icon>
+                </div>
+                <span class="text-white/50 font-medium text-sm border border-white/10 px-3 py-1 rounded-full">03</span>
+              </div>
+              <div>
+                <h3 class="text-4xl md:text-5xl text-white mb-4 leading-none tracking-tight font-serif">
+                  Session &amp; <br>Invoice APIs
+                </h3>
+                <p class="text-gray-400 text-lg leading-snug">
+                  Device-aware sessions, audit logging, and invoice / adjustment-note REST APIs wired into portal flows.
+                </p>
+                <p class="text-gray-400 text-sm mt-4 uppercase tracking-widest font-mono">
+                  Express · Sequelize · MySQL
+                </p>
+              </div>
+              <div class="w-full h-px bg-white/10 mt-8"></div>
+            </div>
+          </div>
+
+          <div class="parallax-card-up md:mt-24">
+            <div class="reveal bg-[#161616] border border-white/10 rounded-3xl p-8 md:p-12 aspect-[4/5] flex flex-col justify-between shadow-2xl group hover:border-[#FF4500]/50 transition-all duration-500 project-card" style="transition-delay: 200ms;">
+              <div class="flex justify-between items-start">
+                <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
+                  <iconify-icon icon="lucide:layout-dashboard" class="text-white text-2xl"></iconify-icon>
+                </div>
+                <span class="text-white/50 font-medium text-sm border border-white/10 px-3 py-1 rounded-full">04</span>
+              </div>
+              <div>
+                <h3 class="text-4xl md:text-5xl text-white mb-4 leading-none tracking-tight font-serif">
+                  Adhoc Reports <br>&amp; Portal UX
+                </h3>
+                <p class="text-gray-400 text-lg leading-snug">
+                  Redesigned reports, user info, data tables, and chat modules for faster day-to-day scanning.
+                </p>
+                <p class="text-gray-400 text-sm mt-4 uppercase tracking-widest font-mono">
+                  React · Vite · Portal UX
+                </p>
+              </div>
+              <div class="w-full h-px bg-white/10 mt-8"></div>
+            </div>
+          </div>
+
+          <div class="parallax-card-down md:col-span-2">
+            <div class="reveal grid md:grid-cols-2 gap-8">
+              <div class="bg-[#111] border border-white/10 rounded-3xl p-8 flex flex-col justify-between min-h-[280px] hover:border-[#FF4500]/40 transition-all duration-500 project-card">
+                <span class="text-white/50 font-medium text-sm border border-white/10 px-3 py-1 rounded-full w-fit">05</span>
+                <div>
+                  <h3 class="text-3xl text-white mb-3 font-serif">Amazon Clone</h3>
+                  <p class="text-gray-400 leading-snug">E-commerce UI with product cards, navigation, cart, and mobile-first layout.</p>
+                  <p class="text-gray-500 text-xs mt-4 uppercase tracking-widest font-mono">HTML5 · CSS3 · JS · Bootstrap</p>
+                </div>
+              </div>
+              <div class="bg-[#111] border border-white/10 rounded-3xl p-8 flex flex-col justify-between min-h-[280px] hover:border-[#FF4500]/40 transition-all duration-500 project-card">
+                <span class="text-white/50 font-medium text-sm border border-white/10 px-3 py-1 rounded-full w-fit">06</span>
+                <div>
+                  <h3 class="text-3xl text-white mb-3 font-serif">This Portfolio</h3>
+                  <p class="text-gray-400 leading-snug">Dark scrollable portfolio with animated hero, project gallery, and contact form.</p>
+                  <p class="text-gray-500 text-xs mt-4 uppercase tracking-widest font-mono">HTML5 · CSS3 · Tailwind · JS</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-10 pointer-events-none"
+           style="background-image: radial-gradient(circle, #333 1px, transparent 1px); background-size: 40px 40px;">
       </div>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="section scrollspy">
-      <h3 class="page-title white-text teal">Skills</h3>
-      <div class="container">
-        <div class="card">
-          <div class="card-content">
-            <h4 class="brown-text light">Frontend</h4>
-            <div class="row text-center">
-              <div class="col s4 m2">
-                <img alt="HTML5" src="assets/img/html5-300x300.jpg" class="responsive-img" />HTML5
-              </div>
-              <div class="col s4 m2">
-                <img alt="CSS3" src="assets/img/css3-300x300.jpg" class="responsive-img" />CSS3
-              </div>
-              <div class="col s4 m2">
-                <img alt="JavaScript" src="assets/img/javascript.png" class="responsive-img" />JavaScript
-              </div>
-              <div class="col s4 m2">
-                <img alt="Bootstrap" src="assets/img/bootstrap.png" class="responsive-img" />Bootstrap
-              </div>
-              <div class="col s4 m2">
-                <img alt="React" src="assets/img/nodejs.png" class="responsive-img" />React / Vite
-              </div>
-              <div class="col s4 m2">
-                <img alt="TypeScript" src="assets/img/css3.png" class="responsive-img" />TypeScript
-              </div>
-            </div>
+    <section id="skills" class="py-32 relative">
+      <div class="container mx-auto px-6">
+        <div class="flex items-end justify-between gap-6 mb-16 flex-wrap">
+          <div class="reveal">
+            <p class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">skills.expertise</p>
+            <h2 class="text-4xl md:text-6xl text-white/90 mt-6 font-serif">Skills</h2>
           </div>
+          <div class="reveal text-xs tracking-[0.2em] text-white/40 uppercase font-mono">(16 TECHNOLOGIES)</div>
         </div>
 
-        <div class="card">
-          <div class="card-content">
-            <h4 class="brown-text light">Backend &amp; Data</h4>
-            <div class="row text-center">
-              <div class="col s4 m2">
-                <img alt="Node.js" src="assets/img/nodejs.png" class="responsive-img" />Node.js
-              </div>
-              <div class="col s4 m2">
-                <img alt="MySQL" src="assets/img/mysql-logo-1-300x300.jpg" class="responsive-img" />MySQL
-              </div>
-              <div class="col s4 m2">
-                <img alt="Python" src="assets/img/python-logo-1-300x300.jpg" class="responsive-img" />Python
-              </div>
-              <div class="col s4 m2">
-                <img alt="Express" src="assets/img/shell-logo-1-300x300.jpg" class="responsive-img" />Express
-              </div>
-            </div>
+        <div class="grid gap-px bg-white/10 md:grid-cols-4 reveal">
+          <div class="bg-[#111] p-8 hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">01</div>
+            <div class="text-white font-mono mt-6">React / Vite</div>
+            <div class="text-white/50 text-sm mt-2">Kendra Frontend</div>
+          </div>
+          <div class="bg-[#111] p-8 hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">02</div>
+            <div class="text-white font-mono mt-6">TypeScript</div>
+            <div class="text-white/50 text-sm mt-2">Typed UI Logic</div>
+          </div>
+          <div class="bg-[#111] p-8 hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">03</div>
+            <div class="text-white font-mono mt-6">HTML5 / CSS3</div>
+            <div class="text-white/50 text-sm mt-2">Markup &amp; Styling</div>
+          </div>
+          <div class="bg-[#111] p-8 hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">04</div>
+            <div class="text-white font-mono mt-6">JavaScript</div>
+            <div class="text-white/50 text-sm mt-2">ES6+</div>
+          </div>
+          <div class="bg-[#111] p-8 hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">05</div>
+            <div class="text-white font-mono mt-6">Tailwind / Bootstrap</div>
+            <div class="text-white/50 text-sm mt-2">UI Frameworks</div>
+          </div>
+          <div class="bg-[#111] p-8 hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">06</div>
+            <div class="text-white font-mono mt-6">Node.js / Express</div>
+            <div class="text-white/50 text-sm mt-2">REST APIs</div>
+          </div>
+          <div class="bg-[#111] p-8 hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">07</div>
+            <div class="text-white font-mono mt-6">Sequelize / MySQL</div>
+            <div class="text-white/50 text-sm mt-2">Data Layer</div>
+          </div>
+          <div class="bg-[#111] p-8 hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">08</div>
+            <div class="text-white font-mono mt-6">Git / GitLab</div>
+            <div class="text-white/50 text-sm mt-2">Version Control</div>
+          </div>
+          <div class="bg-[#111] p-8 hover:bg-[#161616] transition-colors md:col-span-2">
+            <div class="text-xs text-white/40 font-mono">09</div>
+            <div class="text-white font-mono mt-6">UI / UX</div>
+            <div class="text-white/50 text-sm mt-2">Redesign · Portal UX · Data Tables · Vendor / KAM Workflows</div>
+          </div>
+          <div class="bg-[#111] p-8 hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">10</div>
+            <div class="text-white font-mono mt-6">Python</div>
+            <div class="text-white/50 text-sm mt-2">Scripting</div>
+          </div>
+          <div class="bg-[#111] p-8 hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">11</div>
+            <div class="text-white font-mono mt-6">Basic PHP</div>
+            <div class="text-white/50 text-sm mt-2">Forms &amp; Backend</div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="card">
-          <div class="card-content">
-            <h4 class="brown-text light">Tools</h4>
-            <div class="row text-center">
-              <div class="col s4 m2">
-                <img alt="Git" src="assets/img/git.png" class="responsive-img" />Git
+    <!-- Experience -->
+    <section id="experience" class="py-32 relative">
+      <div class="container mx-auto px-6">
+        <div class="reveal">
+          <p class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">experience.work</p>
+          <h2 class="text-4xl md:text-6xl text-white/90 mt-6 font-serif">Experience</h2>
+        </div>
+
+        <div class="grid gap-8 md:grid-cols-2 mt-16">
+          <div class="reveal border border-white/10 p-10 hover:border-[#FF4500]/40 transition-colors md:col-span-2">
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <div class="text-xs text-white/40 font-mono">01 / WORK</div>
+                <div class="text-2xl text-white font-mono mt-6">Software Engineer</div>
+                <div class="text-sm text-[#FF4500] font-mono mt-2">ProcMart · Mar 2026 – Present</div>
               </div>
-              <div class="col s4 m2">
-                <img alt="GitHub" src="assets/img/github.png" class="responsive-img" />GitHub / GitLab
-              </div>
+              <span class="text-[10px] tracking-widest uppercase font-mono text-black bg-[#FF4500] px-3 py-1 rounded-full">Paid Internship · 3 + 3 + 2 mo extensions</span>
             </div>
+            <ul class="text-white/60 text-sm leading-relaxed mt-6 space-y-3 columns-1 md:columns-2 gap-10">
+              <li>Redesigned <a href="https://www.procmart.com" target="_blank" rel="noreferrer" class="text-white/80 underline decoration-white/20 hover:decoration-[#FF4500]">procmart.com</a> end-to-end</li>
+              <li>Built Goonj seller quote UI + matching Node APIs</li>
+              <li>Device-aware session management &amp; portal session takeover</li>
+              <li>Invoice &amp; adjustment-note REST APIs + frontend flows</li>
+              <li>KAM email-to-vendor submission UX</li>
+              <li>Adhoc Reports &amp; inner-portal UX redesigns</li>
+              <li>5–6 initiatives across Kendra + procmart-api-v3 (GitLab)</li>
+            </ul>
+          </div>
+          <div class="reveal border border-white/10 p-10 hover:border-[#FF4500]/40 transition-colors">
+            <div class="text-xs text-white/40 font-mono">02 / WORK</div>
+            <div class="text-2xl text-white font-mono mt-6">Web Development Intern</div>
+            <div class="text-sm text-[#FF4500] font-mono mt-2">Graphic Era Hill University · 2024</div>
+            <ul class="text-white/60 text-sm leading-relaxed mt-6 space-y-3">
+              <li>Responsive pages with HTML, CSS &amp; JavaScript</li>
+              <li>Interactive UI and client-side validation</li>
+              <li>Git collaboration on mini projects</li>
+            </ul>
+          </div>
+          <div class="reveal border border-white/10 p-10 hover:border-[#FF4500]/40 transition-colors">
+            <div class="text-xs text-white/40 font-mono">03 / PROJECT</div>
+            <div class="text-2xl text-white font-mono mt-6">Amazon Clone</div>
+            <div class="text-sm text-[#FF4500] font-mono mt-2">Frontend · Personal</div>
+            <ul class="text-white/60 text-sm leading-relaxed mt-6 space-y-3">
+              <li>Amazon-inspired e-commerce UI</li>
+              <li>Product cards, cart UI, mobile-first build</li>
+              <li>HTML5, CSS3, JavaScript, Bootstrap</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Education -->
-    <section id="education" class="section scrollspy">
-      <h3 class="page-title white-text teal">Education</h3>
-      <div class="container">
-        <div class="row">
-          <div class="col s12 m6 l6">
-            <div class="card">
-              <div class="card-content">
-                <p>
-                  <span class="card-title"><a href="https://www.geu.ac.in/" target="_blank" rel="noopener noreferrer" class="teal-text hoverline">Graphic Era University</a></span>
-                </p>
-                <p class="brown-text">Dehradun, India</p>
-                <p>
-                  <b>Degree: </b>B.Tech, Computer Science Engineering
-                  <br>
-                  <b>CGPA: </b>6.32/10
-                </p>
-                <ul>
-                  <p>
-                    <b>Focus:</b>
-                  <ul>
-                    <li>Web Development</li>
-                    <li>Data Structures &amp; Algorithms</li>
-                    <li>Database Systems</li>
-                  </ul>
-                  </p>
-                </ul>
-              </div>
-              <div class="card-action">
-                <span>2022 – 2026</span>
-              </div>
-            </div>
+    <section id="education" class="py-32 bg-[#0a0a0a]">
+      <div class="container mx-auto px-6">
+        <div class="reveal">
+          <p class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">education.background</p>
+          <h2 class="text-4xl md:text-6xl text-white/90 mt-6 font-serif">Education</h2>
+        </div>
+
+        <div class="grid gap-px bg-white/10 md:grid-cols-3 mt-16">
+          <div class="bg-[#111] p-10 reveal hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">2022 — 2026</div>
+            <div class="text-lg text-white font-mono mt-6">Graphic Era University</div>
+            <div class="text-sm text-white/50 mt-2">Bachelor of Technology<br>Computer Science Engineering</div>
+            <div class="text-xs tracking-[0.2em] text-[#FF4500] uppercase font-mono mt-6">CGPA 6.32/10</div>
           </div>
-          <div class="col s12 m6 l6">
-            <div class="card">
-              <div class="card-content">
-                <p>
-                  <span class="card-title"><span class="teal-text">St Kabeer Academy</span></span>
-                </p>
-                <p class="brown-text">CBSE</p>
-                <p>
-                  <b>Class XII:</b> 2021 · 71.6%<br>
-                  <b>Class X:</b> 2019 · 72.4%
-                </p>
-              </div>
-            </div>
+          <div class="bg-[#111] p-10 reveal hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">2021</div>
+            <div class="text-lg text-white font-mono mt-6">St. Kabeer Academy</div>
+            <div class="text-sm text-white/50 mt-2">Senior Secondary Education<br>Class XII · CBSE</div>
+            <div class="text-xs tracking-[0.2em] text-[#FF4500] uppercase font-mono mt-6">71.6%</div>
+          </div>
+          <div class="bg-[#111] p-10 reveal hover:bg-[#161616] transition-colors">
+            <div class="text-xs text-white/40 font-mono">2019</div>
+            <div class="text-lg text-white font-mono mt-6">St. Kabeer Academy</div>
+            <div class="text-sm text-white/50 mt-2">Secondary Education<br>Class X · CBSE</div>
+            <div class="text-xs tracking-[0.2em] text-[#FF4500] uppercase font-mono mt-6">72.4%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interests -->
+    <section class="py-20 border-t border-white/5">
+      <div class="container mx-auto px-6 reveal">
+        <div class="flex flex-wrap items-center gap-6">
+          <span class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">interests</span>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 border border-white/10 text-white/60 font-mono text-xs hover:border-[#FF4500]/50 hover:text-white transition-colors">Presentation Design</span>
+            <span class="px-4 py-2 border border-white/10 text-white/60 font-mono text-xs hover:border-[#FF4500]/50 hover:text-white transition-colors">Video Editing</span>
+            <span class="px-4 py-2 border border-white/10 text-white/60 font-mono text-xs hover:border-[#FF4500]/50 hover:text-white transition-colors">UI Trends</span>
+            <span class="px-4 py-2 border border-white/10 text-white/60 font-mono text-xs hover:border-[#FF4500]/50 hover:text-white transition-colors">Competitive Coding</span>
+            <span class="px-4 py-2 border border-white/10 text-white/60 font-mono text-xs hover:border-[#FF4500]/50 hover:text-white transition-colors">Volleyball</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="section scrollspy full-height">
-      <h3 class="page-title white-text teal">Contact</h3>
-      <div class="container">
-        <p>
-          <a aria-label="Call Vansh" href="tel:+918755629841" data-position="top" data-tooltip="Call Vansh"
-            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-phone"></i></a>
-          <a aria-label="Call Vansh" href="tel:+918755629841" class="hoverline">+91 8755629841</a>
-        </p>
-        <p>
-          <a aria-label="Email Vansh" href="mailto:Bishtvansh491@gmail.com" data-position="top"
-            data-tooltip="Email Vansh" class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
-              class="fa fa-envelope"></i></a>
-          <a aria-label="Email Vansh" href="mailto:Bishtvansh491@gmail.com"
-            class="hoverline">Bishtvansh491@gmail.com</a>
-        </p>
-        <p>
-          <a aria-label="View Vansh on GitHub" href="https://github.com/vanshbishtbuild" target="_blank" rel="noopener noreferrer"
-            data-position="top" data-tooltip="View Vansh on GitHub"
-            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-github"></i></a>
-          <a aria-label="Vansh on Github" href="https://github.com/vanshbishtbuild" class="hoverline"
-            target="_blank" rel="noopener noreferrer">github.com/vanshbishtbuild</a>
-        </p>
-        <p>
-          <i class="fa fa-map-marker"></i>
-          <span class="hoverline">Uttarakhand, India</span>
-        </p>
+    <section id="contact" class="py-32 relative">
+      <div class="container mx-auto px-6 grid gap-12 md:grid-cols-2">
+        <div class="reveal">
+          <p class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">contact.26</p>
+          <h2 class="text-4xl md:text-6xl text-white/90 mt-6 font-serif">GET<br>IN<br><span class="italic">touch.</span></h2>
+          <div class="mt-10 space-y-4 text-white/70 font-mono">
+            <a href="mailto:Bishtvansh491@gmail.com" class="block hover:text-white transition-colors">Bishtvansh491@gmail.com</a>
+            <a href="tel:+918755629841" class="block hover:text-white transition-colors">+91 8755629841</a>
+            <div class="text-xs tracking-[0.2em] text-white/40 uppercase">UTTARAKHAND, INDIA</div>
+          </div>
+        </div>
+        <form id="contact-form" class="reveal" novalidate>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">First Name</label>
+              <input type="text" name="firstName" required placeholder="Your name" class="mt-2 w-full bg-transparent border-b border-white/10 py-3 text-white/80 outline-none focus:border-[#FF4500]/60 transition-colors">
+            </div>
+            <div>
+              <label class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">Last Name</label>
+              <input type="text" name="lastName" required placeholder="Last name" class="mt-2 w-full bg-transparent border-b border-white/10 py-3 text-white/80 outline-none focus:border-[#FF4500]/60 transition-colors">
+            </div>
+          </div>
+          <div class="mt-6">
+            <label class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">Email</label>
+            <input type="email" name="email" required placeholder="your@email.com" class="mt-2 w-full bg-transparent border-b border-white/10 py-3 text-white/80 outline-none focus:border-[#FF4500]/60 transition-colors">
+          </div>
+          <div class="mt-6">
+            <label class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">Phone</label>
+            <input type="tel" name="phone" placeholder="+91 00000 00000" class="mt-2 w-full bg-transparent border-b border-white/10 py-3 text-white/80 outline-none focus:border-[#FF4500]/60 transition-colors">
+          </div>
+          <div class="mt-6">
+            <label class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">Message</label>
+            <textarea name="message" required placeholder="Tell me about your project..." class="mt-2 w-full bg-transparent border-b border-white/10 py-3 text-white/80 outline-none h-28 resize-none focus:border-[#FF4500]/60 transition-colors"></textarea>
+          </div>
+          <div class="mt-8">
+            <div class="h-captcha" data-sitekey="01dc0850-cabc-4daa-8bdc-e3d816a65d6c"></div>
+          </div>
+          <button id="contact-submit" type="submit" class="mt-8 px-8 py-4 bg-white text-black text-xs uppercase tracking-[0.3em] font-mono hover:bg-[#FF4500] hover:text-white transition-colors">
+            SEND MESSAGE →
+          </button>
+          <p id="form-status" class="form-status mt-4 text-xs text-white/60 font-mono" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
-  </main>
 
-  <!-- typed.js -->
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script type="text/javascript">
-    var typed = new Typed('.typing', {
-      strings: ["Software Engineer", "Frontend Developer", "React / Node Builder"],
-      loop: true,
-      typeSpeed: 80,
-      backSpeed: 40
-    });
-  </script>
+    <!-- Footer -->
+    <footer class="py-20 border-t border-white/5 bg-[#050505] relative overflow-hidden">
+      <div class="container mx-auto px-6 relative z-10">
+        <div class="grid gap-12 md:grid-cols-4">
+          <div class="md:col-span-2">
+            <div class="text-3xl font-serif text-white">Vansh Bisht</div>
+            <p class="text-sm text-white/50 mt-4 max-w-md">Software Engineer · Frontend UI/UX + Node.js APIs. Building production features at ProcMart.</p>
+          </div>
+          <div>
+            <div class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">Navigate</div>
+            <ul class="mt-4 space-y-2 text-sm text-white/50">
+              <li><a href="#about" class="hover:text-white">About</a></li>
+              <li><a href="#skills" class="hover:text-white">Skills</a></li>
+              <li><a href="#works" class="hover:text-white">Projects</a></li>
+              <li><a href="#experience" class="hover:text-white">Experience</a></li>
+              <li><a href="#contact" class="hover:text-white">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="text-xs tracking-[0.3em] text-white/40 uppercase font-mono">Contact</div>
+            <ul class="mt-4 space-y-2 text-sm text-white/50">
+              <li><a href="mailto:Bishtvansh491@gmail.com" class="hover:text-white">Email</a></li>
+              <li><a href="tel:+918755629841" class="hover:text-white">+91 8755629841</a></li>
+              <li><a href="https://github.com/vanshbishtbuild" target="_blank" rel="noreferrer" class="hover:text-white">GitHub</a></li>
+              <li>Uttarakhand, India</li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-12 pt-8 border-t border-white/5 gap-4">
+          <span class="text-xs text-white/40 font-mono">© <span id="footer-year">2026</span> VANSH BISHT. ALL RIGHTS RESERVED.</span>
+          <span class="text-xs text-white/40 font-mono">SOFTWARE ENGINEER · B.TECH CSE 2026</span>
+        </div>
+      </div>
+    </footer>
+  </div>
 
-  <!-- jQuery-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
-  <!-- Materialize - Compiled and minified JavaScript-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
-  <script>
-    // Materialize - Initializers (from template)
-    $(document).ready(function () {
-      $(".scrollspy").scrollSpy()
-      $(".button-collapse").sideNav({
-        menuWidth: 190,
-        edge: "left",
-        closeOnClick: true
-      })
-    })
-  </script>
+  <script src="script.js"></script>
 </body>
-
 </html>

@@ -2,4 +2,4 @@
 
 Live: https://vanshbishtbuild.github.io/MY-PORTFOLIO/
 
-Based on [varadbhogayata/varadbhogayata.github.io](https://github.com/varadbhogayata/varadbhogayata.github.io) (MIT) — Materialize side-nav + scrollspy portfolio. Content customized from resume (ProcMart, skills, education, contact).
+Personal dark-theme scroll portfolio (Tailwind + custom CSS/JS). Content aligned with current resume (ProcMart, skills, education).
