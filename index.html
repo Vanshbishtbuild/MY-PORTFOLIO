@@ -1,670 +1,623 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vansh Bisht — Software Engineer</title>
-<meta name="description" content="Vansh Bisht — Software Engineer focused on frontend UI/UX, React/Vite, and Node.js/Express APIs. Currently at ProcMart.">
-<meta property="og:title" content="Vansh Bisht — Software Engineer">
-<meta property="og:description" content="Frontend UI/UX + Node.js APIs. Building production features at ProcMart.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://vanshbishtbuild.github.io/MY-PORTFOLIO/">
-<link rel="canonical" href="https://vanshbishtbuild.github.io/MY-PORTFOLIO/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>V</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #0b0f0e;
-    --bg2: #111816;
-    --card: #141c1a;
-    --accent: #2dd4bf;
-    --accent-dim: #14b8a6;
-    --accent2: #f0b429;
-    --text: #e8efec;
-    --muted: #8a9a94;
-    --border: #24302c;
-    --glow: rgba(45, 212, 191, 0.12);
-  }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-  body {
-    font-family: 'Outfit', system-ui, sans-serif;
-    background: var(--bg);
-    background-image:
-      radial-gradient(ellipse at 15% -10%, rgba(45,212,191,0.08) 0%, transparent 45%),
-      radial-gradient(ellipse at 90% 80%, rgba(240,180,41,0.05) 0%, transparent 40%),
-      linear-gradient(180deg, #0b0f0e 0%, #0e1412 100%);
-    color: var(--text);
-    line-height: 1.65;
-    min-height: 100vh;
-  }
+  <!-- Materialize - Compiled and minified CSS-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css" />
+  <!-- Font Awesome Icon - CSS-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+  <!-- Custom Styles (from varadbhogayata/varadbhogayata.github.io) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Vansh Bisht | Software Engineer</title>
 
-  a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-  a:hover { color: #5eead4; }
-
-  /* Nav */
-  .nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    backdrop-filter: blur(14px);
-    background: rgba(11, 15, 14, 0.75);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.3s, padding 0.3s;
-  }
-  .nav.scrolled { border-bottom-color: var(--border); }
-  .nav-inner {
-    max-width: 960px; margin: 0 auto; padding: 18px 24px;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  }
-  .nav-brand {
-    font-weight: 700; font-size: 1.15rem; color: var(--text); letter-spacing: -0.02em;
-  }
-  .nav-brand span { color: var(--accent); }
-  .nav-links { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-  .nav-links a {
-    color: var(--muted); font-size: 0.85rem; padding: 6px 12px; border-radius: 6px;
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--accent); background: var(--glow); }
-  .nav-cta {
-    background: var(--accent) !important; color: #042f2e !important;
-    font-weight: 600; padding: 8px 16px !important; border-radius: 8px !important;
-  }
-  .nav-cta:hover { background: #5eead4 !important; color: #042f2e !important; }
-  .nav-toggle {
-    display: none; background: none; border: 1px solid var(--border);
-    color: var(--text); width: 40px; height: 40px; border-radius: 8px; cursor: pointer; font-size: 1.2rem;
-  }
-  @media (max-width: 720px) {
-    .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
-    .nav-links {
-      display: none; position: absolute; top: 100%; left: 0; right: 0;
-      flex-direction: column; background: rgba(11,15,14,0.96); padding: 12px 24px 20px;
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-links.open { display: flex; }
-  }
-
-  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-  section { padding: 72px 0 20px; }
-
-  /* Hero */
-  .hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding-top: 100px; padding-bottom: 60px; position: relative;
-  }
-  .hero-grid {
-    display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: center;
-  }
-  @media (max-width: 800px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 32px; }
-    .hero-visual { order: -1; }
-  }
-  .eyebrow {
-    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
-    color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase;
-    margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
-  }
-  .eyebrow::before {
-    content: ''; width: 28px; height: 2px; background: var(--accent);
-  }
-  .hero h1 {
-    font-size: clamp(2.6rem, 6vw, 3.8rem); font-weight: 800;
-    letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px;
-  }
-  .hero h1 em { font-style: normal; color: var(--accent); }
-  .hero-lead {
-    font-size: 1.1rem; color: var(--muted); max-width: 520px; margin-bottom: 28px;
-  }
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: 0.92rem;
-    border: 1px solid transparent; cursor: pointer; transition: transform 0.2s, background 0.2s, border-color 0.2s;
-  }
-  .btn:hover { transform: translateY(-2px); }
-  .btn-primary { background: var(--accent); color: #042f2e; }
-  .btn-primary:hover { background: #5eead4; color: #042f2e; }
-  .btn-ghost {
-    background: transparent; color: var(--text); border-color: var(--border);
-  }
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
-  .hero-meta {
-    display: flex; gap: 28px; flex-wrap: wrap;
-  }
-  .meta-item .num {
-    font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: var(--accent2);
-  }
-  .meta-item .lbl { font-size: 0.78rem; color: var(--muted); }
-
-  .hero-visual {
-    position: relative; aspect-ratio: 1; max-width: 340px; margin: 0 auto;
-  }
-  .orbit {
-    position: absolute; inset: 0; border-radius: 50%;
-    border: 1px dashed var(--border);
-    animation: spin 40s linear infinite;
-  }
-  .orbit-2 { inset: 12%; animation-direction: reverse; animation-duration: 28s; border-color: rgba(45,212,191,0.25); }
-  .orbit-3 { inset: 28%; animation-duration: 20s; border-color: rgba(240,180,41,0.2); }
-  .avatar-ring {
-    position: absolute; inset: 22%;
-    border-radius: 50%;
-    background:
-      radial-gradient(circle at 30% 30%, rgba(45,212,191,0.35), transparent 50%),
-      linear-gradient(145deg, #1a2e2a, #0d1614);
-    border: 1px solid var(--border);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 0 60px var(--glow);
-  }
-  .avatar-ring span {
-    font-size: 3.5rem; font-weight: 800; letter-spacing: -0.04em; color: var(--accent);
-  }
-  .chip {
-    position: absolute; padding: 6px 12px; background: var(--card);
-    border: 1px solid var(--border); border-radius: 999px;
-    font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: var(--muted);
-    white-space: nowrap;
-  }
-  .chip-1 { top: 8%; right: -4%; color: var(--accent); }
-  .chip-2 { bottom: 18%; left: -8%; color: var(--accent2); }
-  .chip-3 { bottom: 4%; right: 10%; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-
-  /* Sections */
-  .section-head {
-    display: flex; align-items: baseline; justify-content: space-between;
-    gap: 16px; margin-bottom: 28px; flex-wrap: wrap;
-  }
-  h2 {
-    font-size: 1.45rem; font-weight: 700; letter-spacing: -0.02em;
-    display: flex; align-items: center; gap: 12px;
-  }
-  h2 .idx {
-    font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
-    color: var(--accent); font-weight: 500;
-  }
-  .section-line {
-    flex: 1; height: 1px; background: var(--border); min-width: 40px;
-  }
-
-  .about-grid {
-    display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px;
-  }
-  @media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; } }
-  .about-text { color: var(--muted); font-size: 1.02rem; }
-  .about-text p + p { margin-top: 14px; }
-  .about-text strong { color: var(--text); font-weight: 600; }
-  .info-card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 22px;
-  }
-  .info-row {
-    display: flex; justify-content: space-between; gap: 12px;
-    padding: 10px 0; border-bottom: 1px solid var(--border);
-    font-size: 0.9rem;
-  }
-  .info-row:last-child { border-bottom: none; padding-bottom: 0; }
-  .info-row:first-child { padding-top: 0; }
-  .info-row .k { color: var(--muted); }
-  .info-row .v { color: var(--text); font-weight: 500; text-align: right; }
-
-  /* Experience */
-  .timeline { position: relative; padding-left: 28px; }
-  .timeline::before {
-    content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px;
-    width: 2px; background: linear-gradient(var(--accent), transparent);
-  }
-  .job {
-    position: relative; margin-bottom: 36px;
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 14px; padding: 24px 26px;
-    transition: border-color 0.25s, transform 0.25s;
-  }
-  .job:hover { border-color: rgba(45,212,191,0.45); transform: translateX(4px); }
-  .job::before {
-    content: ''; position: absolute; left: -26px; top: 28px;
-    width: 12px; height: 12px; border-radius: 50%;
-    background: var(--accent); box-shadow: 0 0 0 4px var(--glow);
-  }
-  .job-top {
-    display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-    margin-bottom: 8px;
-  }
-  .job h3 { font-size: 1.1rem; font-weight: 700; }
-  .job .org { color: var(--accent); }
-  .job .when {
-    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--muted);
-  }
-  .job .badge {
-    display: inline-block; margin: 4px 0 12px;
-    font-size: 0.78rem; color: var(--accent2);
-    background: rgba(240,180,41,0.1); border: 1px solid rgba(240,180,41,0.25);
-    padding: 4px 10px; border-radius: 6px;
-  }
-  .job ul { margin-left: 18px; color: var(--muted); font-size: 0.92rem; }
-  .job li { margin-bottom: 8px; }
-  .job li::marker { color: var(--accent); }
-
-  /* Projects */
-  .projects {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
-  }
-  @media (max-width: 640px) { .projects { grid-template-columns: 1fr; } }
-  .card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
-    padding: 24px; transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
-  }
-  .card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(45,212,191,0.4);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-  }
-  .card .tag {
-    font-family: 'JetBrains Mono', monospace; font-size: 0.72rem;
-    color: var(--accent); margin-bottom: 10px;
-  }
-  .card h3 { font-size: 1.05rem; margin-bottom: 8px; }
-  .card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 14px; }
-  .card .tech-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-  .pill {
-    font-size: 0.72rem; padding: 3px 10px; border-radius: 999px;
-    background: var(--bg2); border: 1px solid var(--border); color: var(--muted);
-  }
-  .card-link { font-size: 0.88rem; font-weight: 600; }
-
-  /* Skills */
-  .skills-wrap { display: grid; gap: 16px; }
-  .skill-group {
-    background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 22px;
-  }
-  .skill-group h3 {
-    font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em;
-    color: var(--accent); margin-bottom: 12px; font-weight: 600;
-  }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .skill {
-    padding: 6px 14px; border-radius: 8px; font-size: 0.85rem;
-    background: var(--bg2); border: 1px solid var(--border); color: var(--text);
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
-  }
-  .skill:hover { border-color: var(--accent); color: var(--accent); background: var(--glow); }
-
-  /* Education */
-  .edu-list { display: grid; gap: 12px; }
-  .edu {
-    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-    padding: 18px 20px; background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-  }
-  .edu h3 { font-size: 1rem; }
-  .edu .sub { font-size: 0.88rem; color: var(--muted); }
-  .edu .meta { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--muted); text-align: right; }
-
-  /* Contact */
-  .contact-box {
-    text-align: center; padding: 48px 28px;
-    background:
-      radial-gradient(ellipse at 50% 0%, var(--glow), transparent 55%),
-      var(--card);
-    border: 1px solid var(--border); border-radius: 18px;
-  }
-  .contact-box h2 { justify-content: center; margin-bottom: 12px; }
-  .contact-box p { color: var(--muted); max-width: 440px; margin: 0 auto 24px; }
-  .contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .contact-links a {
-    padding: 10px 18px; border: 1px solid var(--border); border-radius: 10px;
-    color: var(--text); font-size: 0.9rem; background: var(--bg2);
-  }
-  .contact-links a:hover { border-color: var(--accent); color: var(--accent); }
-
-  footer {
-    text-align: center; padding: 40px 24px 56px;
-    color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border);
-    margin-top: 40px;
-  }
-
-  /* Reveal */
-  .reveal {
-    opacity: 0; transform: translateY(22px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .reveal.visible { opacity: 1; transform: none; }
-  .reveal.delay-1 { transition-delay: 0.1s; }
-  .reveal.delay-2 { transition-delay: 0.2s; }
-  .reveal.delay-3 { transition-delay: 0.3s; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; transition: none; }
-    .orbit { animation: none; }
-    html { scroll-behavior: auto; }
-  }
-</style>
+  <!-- Open Graph-->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vansh Bisht | Software Engineer" />
+  <meta property="og:description" content="Software Engineer focused on frontend UI/UX, React/Vite, and Node.js/Express APIs." />
+  <meta property="og:url" content="https://vanshbishtbuild.github.io/MY-PORTFOLIO/" />
+  <meta property="og:site_name" content="Vansh Bisht | Software Engineer" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Vansh Bisht | Software Engineer" />
+  <meta name="twitter:description" content="Frontend UI/UX + Node.js APIs. Building production features at ProcMart." />
+  <meta name="author" content="Vansh Bisht" />
+  <meta name="description" content="Software Engineer focused on frontend UI/UX, with hands-on experience building responsive interfaces and supporting Node.js/Express APIs." />
+  <link rel="icon" type="image/svg+xml" href="assets/img/profile.svg" />
+  <meta name="theme-color" content="#00897b" />
+  <meta name="robots" content="index, follow" />
 </head>
+
 <body>
+  <!-- Navigation Menu - template structure from varadbhogayata -->
+  <nav class="hide-on-small-only">
+    <ul class="side-nav fixed section table-of-contents">
 
-<nav class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#top" class="nav-brand">Vansh<span>.</span></a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Menu">☰</button>
-    <div class="nav-links" id="nav-links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact" class="nav-cta">Contact</a>
+      <li class="logo">
+        <a id="logo-container" aria-label="Navigate to the beginning of the page" href="#intro"
+          class="brand-logo grey-blue-text">
+          <img src="assets/img/profile.svg" class="circle img-responsive profile-pic" alt="Vansh Bisht">
+        </a>
+      </li>
+
+      <li class="bold">
+        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
+            class="mdi-social-person small"></i><span>About</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Experience section" href="#experience"
+          class="waves-effect waves-dark teal-text"><i
+            class="mdi-action-trending-up small"></i><span>Experience</span></a>
+      </li>
+
+      <li class="bold">
+        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
+            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+      </li>
+
+      <li class="bold">
+        <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
+            class="mdi-action-assessment small"></i><span>Skills</span></a>
+      </li>
+
+      <li class="bold">
+        <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
+            class="mdi-social-school small"></i><span>Education</span></a>
+      </li>
+
+      <li class="bold">
+        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
+            class="mdi-content-mail small"></i><span>Contact</span></a>
+      </li>
+
+      <li class="bold">
+        <a aria-label="Open Vansh's portfolio resume" href="mailto:Bishtvansh491@gmail.com"
+          class="waves-effect waves-dark teal-text"><i
+            class="mdi-file-folder-open small"></i><span>Resume</span></a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Navbar for small screens -->
+  <nav class="hide-on-large only">
+    <div class="nav-wrapper">
+      <a id="name" aria-label="Navigate to the beginning of the page" href="#" class="teal-text">Vansh
+        Bisht</a>
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </div>
-  </div>
-</nav>
 
-<main id="top">
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <p class="eyebrow reveal">Software Engineer · ProcMart</p>
-        <h1 class="reveal delay-1">Building clear UI<br>and solid <em>APIs</em>.</h1>
-        <p class="hero-lead reveal delay-2">
-          Frontend-focused engineer shipping responsive interfaces, redesigning product flows,
-          and pairing UI work with Node.js / Express backends.
+    <ul id="slide-out" class="side-nav">
+      <li class="bold">
+        <a aria-label="Navigate to the About section" href="#about" class="waves-effect waves-dark teal-text"><i
+            class="mdi-social-person small"></i><span>About</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Experience section" href="#experience"
+          class="waves-effect waves-dark teal-text"><i
+            class="mdi-action-trending-up small"></i><span>Experience</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Projects section" href="#projects" class="waves-effect waves-dark teal-text"><i
+            class="mdi-av-my-library-books small"></i><span>Projects</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Skills section" href="#skills" class="waves-effect waves-dark teal-text"><i
+            class="mdi-action-assessment small"></i><span>Skills</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Education section" href="#education" class="waves-effect waves-dark teal-text"><i
+            class="mdi-social-school small"></i><span>Education</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Navigate to the Contact section" href="#contact" class="waves-effect waves-dark teal-text"><i
+            class="mdi-content-mail small"></i><span>Contact</span></a>
+      </li>
+      <li class="bold">
+        <a aria-label="Email for resume" href="mailto:Bishtvansh491@gmail.com" class="waves-effect waves-dark teal-text"><i
+            class="mdi-file-folder-open small"></i><span>Resume</span></a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Main Content-->
+  <main>
+    <!-- First Section: Heading -->
+    <section id="intro" class="section scrollspy full-height">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="col-md-9">
+          <div class="content section-padding valign" style="margin-left: 10%; margin-top: 50px;">
+            <div class="caption">
+              <h2>Hi, I'm <span class="teal">Vansh Bisht.</span></h2>
+              <h5 style="color:#fff">A <span class="typing" style="font-weight: 300; color:#004d40"></span></h5>
+              <h5>Software Engineer focused on frontend UI/UX — redesigning flows, shipping responsive interfaces, and pairing UI with Node.js/Express APIs.</h5>
+            </div>
+            <div class="social">
+              <a href="https://github.com/vanshbishtbuild" target="_blank" rel="noopener noreferrer">
+                <button class="icon-btn github">
+                  <i class="fa fa-github"></i>
+                </button>
+              </a>
+              <a href="mailto:Bishtvansh491@gmail.com">
+                <button class="icon-btn linkedin">
+                  <i class="fa fa-envelope"></i>
+                </button>
+              </a>
+            </div>
+            <div class='buttons'>
+              <a href="#about" class="readme">Read More</a>
+              <a href="#contact" class="contactme">Contact Me</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section scrollspy">
+      <h3 class="page-title white-text teal">About</h3>
+      <div class="container flow-text">
+        <p>
+          I am a Software Engineer focused on frontend UI/UX, with hands-on experience building responsive interfaces
+          and supporting Node.js/Express APIs. I redesign user flows, simplify complex forms and data views, and ship
+          clean, production-ready features for web applications.
         </p>
-        <div class="hero-actions reveal delay-3">
-          <a class="btn btn-primary" href="#experience">See experience</a>
-          <a class="btn btn-ghost" href="mailto:Bishtvansh491@gmail.com">Email me</a>
-        </div>
-        <div class="hero-meta reveal delay-3">
-          <div class="meta-item">
-            <div class="num">8+</div>
-            <div class="lbl">months at ProcMart</div>
-          </div>
-          <div class="meta-item">
-            <div class="num">5–6</div>
-            <div class="lbl">product initiatives</div>
-          </div>
-          <div class="meta-item">
-            <div class="num">GEU</div>
-            <div class="lbl">B.Tech CSE · 2026</div>
-          </div>
-        </div>
-      </div>
-      <div class="hero-visual reveal delay-2">
-        <div class="orbit"></div>
-        <div class="orbit orbit-2"></div>
-        <div class="orbit orbit-3"></div>
-        <div class="avatar-ring"><span>VB</span></div>
-        <span class="chip chip-1">React / Vite</span>
-        <span class="chip chip-2">Node / Express</span>
-        <span class="chip chip-3">Uttarakhand</span>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2><span class="idx">01</span> About</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>
-            I’m <strong>Vansh Bisht</strong>, a Software Engineer focused on frontend UI/UX with
-            hands-on experience supporting Node.js/Express APIs. I redesign user flows, simplify
-            complex forms and data views, and ship clean production features.
-          </p>
-          <p>
-            At <strong>ProcMart</strong> I’ve worked across <strong>Kendra</strong> (React/Vite)
-            and <strong>procmart-api-v3</strong> — from the public seller quote (Goonj) to session
-            management, invoice APIs, and portal UX like Adhoc Reports.
-          </p>
-        </div>
-        <div class="info-card reveal delay-1">
-          <div class="info-row"><span class="k">Role</span><span class="v">Software Engineer</span></div>
-          <div class="info-row"><span class="k">Company</span><span class="v">ProcMart</span></div>
-          <div class="info-row"><span class="k">Location</span><span class="v">Uttarakhand</span></div>
-          <div class="info-row"><span class="k">Phone</span><span class="v">+91 8755629841</span></div>
-          <div class="info-row"><span class="k">Email</span><span class="v"><a href="mailto:Bishtvansh491@gmail.com">Bishtvansh491@gmail.com</a></span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="experience">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2><span class="idx">02</span> Experience</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="timeline">
-        <article class="job reveal">
-          <div class="job-top">
-            <h3>Software Engineer — <span class="org">ProcMart</span></h3>
-            <span class="when">Mar 2026 – Present</span>
-          </div>
-          <div class="badge">Paid Internship · 3 months + 3-month extension + 2-month extension</div>
+        <p>
+          Currently at <b>ProcMart</b> (paid internship with extensions), I work across <b>Kendra</b> (React/Vite) and
+          <b>procmart-api-v3</b> — including the seller public quote (Goonj), session management, invoice APIs, and portal UX such as Adhoc Reports.
+        </p>
+        <p>
           <ul>
-            <li>Redesigned <a href="https://www.procmart.com" target="_blank" rel="noopener">procmart.com</a> end-to-end — visual hierarchy, responsiveness, and brand presentation.</li>
-            <li>Built the seller public quote (Goonj) UI on Kendra and matching Node.js API endpoints for HSN, KAM mapping, quote submit, and contract validation.</li>
-            <li>Implemented device-aware session management on the API (policy, audit logging, device tables) and session-takeover / profile updates on the portal.</li>
-            <li>Added REST APIs for invoice and adjustment-note management; integrated seller-requisition and quote-submission flows.</li>
-            <li>Built KAM email-to-vendor submission UX and portal forms to cut manual handoffs.</li>
-            <li>Redesigned Adhoc Reports and inner-portal modules (user info, data tables, chat) for clearer day-to-day scanning.</li>
-            <li>Shipped across Kendra and procmart-api-v3 on GitLab for 5–6 initiatives, pairing UI with backend API changes.</li>
+            <li><b>Frontend:</b> React, TypeScript, Vite, HTML5, CSS3, JavaScript (ES6), Tailwind CSS, Bootstrap</li>
+            <li><b>Backend:</b> Node.js, Express, REST APIs, Sequelize, MySQL, Form Handling, Basic PHP</li>
+            <li><b>UI / UX:</b> UI Redesign, Portal UX, Data Tables &amp; Layout, Vendor/KAM Workflows</li>
+            <li><b>Tools:</b> Git, GitLab, GitHub, VS Code, Python</li>
           </ul>
-        </article>
-        <article class="job reveal delay-1">
-          <div class="job-top">
-            <h3>Web Development Intern — <span class="org">Graphic Era Hill University</span></h3>
-            <span class="when">2024</span>
-          </div>
-          <ul>
-            <li>Built responsive pages with HTML, CSS, and JavaScript; interactive UI with client-side validation.</li>
-            <li>Used Git for version control and collaborated with peers on mini projects.</li>
-          </ul>
-        </article>
+        </p>
+        <p>
+          Based in Uttarakhand. Open to roles and collaborations in frontend, full-stack web, and product UI.
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2><span class="idx">03</span> Projects</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="projects">
-        <article class="card reveal">
-          <div class="tag">PRODUCTION · PROCMART</div>
-          <h3>Goonj — Seller Public Quote</h3>
-          <p>Seller-facing quote UI on Kendra with Node APIs for HSN, KAM mapping, submit, and contract checks.</p>
-          <div class="tech-row">
-            <span class="pill">React</span><span class="pill">Vite</span><span class="pill">Node.js</span><span class="pill">Express</span>
-          </div>
-        </article>
-        <article class="card reveal delay-1">
-          <div class="tag">PRODUCTION · PROCMART</div>
-          <h3>procmart.com Redesign</h3>
-          <p>End-to-end marketing site redesign focused on hierarchy, mobile responsiveness, and brand clarity.</p>
-          <div class="tech-row">
-            <span class="pill">HTML/CSS</span><span class="pill">JavaScript</span><span class="pill">UI Redesign</span>
-          </div>
-          <a class="card-link" href="https://www.procmart.com" target="_blank" rel="noopener">Visit site →</a>
-        </article>
-        <article class="card reveal delay-2">
-          <div class="tag">PRODUCTION · PROCMART</div>
-          <h3>Session &amp; Invoice APIs</h3>
-          <p>Device-aware sessions, audit logging, and invoice / adjustment-note REST APIs wired into portal flows.</p>
-          <div class="tech-row">
-            <span class="pill">Express</span><span class="pill">Sequelize</span><span class="pill">MySQL</span>
-          </div>
-        </article>
-        <article class="card reveal delay-3">
-          <div class="tag">PERSONAL</div>
-          <h3>This Portfolio</h3>
-          <p>Scrollable single-page portfolio with sticky nav, reveal animations, and resume-aligned content.</p>
-          <div class="tech-row">
-            <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span>
-          </div>
-          <a class="card-link" href="https://vanshbishtbuild.github.io/MY-PORTFOLIO/" target="_blank" rel="noopener">Live demo →</a>
-        </article>
-        <article class="card reveal">
-          <div class="tag">ACADEMIC</div>
-          <h3>Amazon Clone — Frontend</h3>
-          <p>E-commerce inspired UI with product cards, navigation, cart UI, and mobile-first layout.</p>
-          <div class="tech-row">
-            <span class="pill">HTML5</span><span class="pill">CSS3</span><span class="pill">JavaScript</span><span class="pill">Bootstrap</span>
-          </div>
-        </article>
-        <article class="card reveal delay-1">
-          <div class="tag">PRODUCTION · PROCMART</div>
-          <h3>Adhoc Reports &amp; Portal UX</h3>
-          <p>Redesigned reports, user info, data tables, and chat modules for faster scanning in daily workflows.</p>
-          <div class="tech-row">
-            <span class="pill">React</span><span class="pill">Vite</span><span class="pill">Portal UX</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+    <!-- Experience -->
+    <section id="experience" class="section scrollspy">
+      <h3 class="page-title white-text teal">Experience</h3>
+      <div class="container">
 
-  <section id="skills">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2><span class="idx">04</span> Skills</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="skills-wrap">
-        <div class="skill-group reveal">
-          <h3>Frontend</h3>
-          <div class="skill-tags">
-            <span class="skill">React</span><span class="skill">TypeScript</span><span class="skill">Vite</span>
-            <span class="skill">HTML5</span><span class="skill">CSS3</span><span class="skill">JavaScript (ES6)</span>
-            <span class="skill">Tailwind CSS</span><span class="skill">Bootstrap</span>
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m2">
+                <a href="https://www.procmart.com" target="_blank" rel="noopener noreferrer">
+                  <img alt="ProcMart" src="assets/img/nodejs.png" class="responsive-img center-block" />
+                </a>
+              </div>
+              <div class="col s12 m10">
+                <p>
+                  <span class="card-title"><a href="https://www.procmart.com" target="_blank" rel="noopener noreferrer"
+                      class="teal-text hoverline">ProcMart</a></span>
+                </p>
+              </div>
+            </div>
+            <div class="role brown-text text-darken-2">Software Engineer</div>
+            <p class="brown-text text-darken-1" style="margin-top:0;"><small>Paid Internship (3 months + 3-month extension + 2-month extension)</small></p>
+            <ul>
+              <li>
+                Redesigned <a href="https://www.procmart.com" target="_blank" rel="noopener noreferrer">procmart.com</a> end-to-end, improving visual hierarchy, responsiveness, and brand presentation.
+              </li>
+              <li>
+                Built the seller public quote (Goonj) UI on Kendra and developed matching Node.js API endpoints for HSN, KAM mapping, quote submit, and contract validation.
+              </li>
+              <li>
+                Implemented device-aware session management on the API (session policy, audit logging, device tables) and session-takeover / user-profile updates on the portal.
+              </li>
+              <li>
+                Added and enhanced REST APIs for invoice and adjustment-note management; integrated frontend flows with seller-requisition and quote-submission services.
+              </li>
+              <li>
+                Built KAM email-to-vendor submission UX and related portal forms to cut manual handoffs in vendor communication.
+              </li>
+              <li>
+                Redesigned Adhoc Reports and other inner-portal modules (user info, data tables, chat) to simplify scanning and day-to-day UX.
+              </li>
+              <li>
+                Worked across Kendra and procmart-api-v3 on GitLab for 5–6 initiatives, pairing UI delivery with backend API changes.
+              </li>
+              <li>
+                <b>Tools:</b> React, Vite, TypeScript, Node.js, Express, Sequelize, MySQL, GitLab
+              </li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <span>Mar 2026 – Present | Uttarakhand, India</span>
           </div>
         </div>
-        <div class="skill-group reveal delay-1">
-          <h3>Backend</h3>
-          <div class="skill-tags">
-            <span class="skill">Node.js</span><span class="skill">Express</span><span class="skill">REST APIs</span>
-            <span class="skill">Sequelize</span><span class="skill">MySQL</span><span class="skill">Form Handling</span>
-            <span class="skill">Basic PHP</span>
+
+        <div class="card">
+          <div class="card-content">
+            <div class="row">
+              <div class="col s12 m2">
+                <img alt="GEHU" src="assets/img/html5.png" class="responsive-img center-block" />
+              </div>
+              <div class="col s12 m10">
+                <p>
+                  <span class="card-title"><a href="#experience" class="teal-text hoverline">Graphic Era Hill University</a></span>
+                </p>
+              </div>
+            </div>
+            <div class="role brown-text text-darken-2">Web Development Intern / Academic Projects</div>
+            <ul>
+              <li>
+                Developed responsive web pages using HTML, CSS, and JavaScript; built interactive UI with client-side validation.
+              </li>
+              <li>
+                Used Git for version control and collaborated with peers on mini projects.
+              </li>
+              <li>
+                <b>Tools:</b> HTML5, CSS3, JavaScript, Git
+              </li>
+            </ul>
+          </div>
+          <div class="card-action">
+            <span>2024 | India</span>
           </div>
         </div>
-        <div class="skill-group reveal delay-2">
-          <h3>UI / UX</h3>
-          <div class="skill-tags">
-            <span class="skill">UI Redesign</span><span class="skill">Portal UX</span>
-            <span class="skill">Data Tables &amp; Layout</span><span class="skill">Vendor / KAM Workflows</span>
+
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section scrollspy">
+      <h3 class="page-title white-text teal">Projects</h3>
+      <div class="container">
+        <div class="row">
+
+          <div class="col s12 m6 l4">
+            <div class="card medium">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img alt="Goonj seller quote" src="assets/img/project-blog-logo.jpg" style="height: 100%; width: 100%" class="activator" />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator teal-text hoverline">Goonj — Seller Quote<i
+                    class="mdi-navigation-more-vert right"></i></span>
+                <p>
+                  Seller public quote UI on Kendra with matching Node APIs
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text"><small>Accomplishments</small><i
+                    class="mdi-navigation-close right"></i></span>
+                <ul>
+                  <li><b>Tools:</b> React, Vite, Node.js, Express</li>
+                  <li>HSN lookup, KAM mapping, quote submit, contract validation.</li>
+                  <li>Shipped as part of ProcMart Kendra + procmart-api-v3.</li>
+                </ul>
+                <div class="card-action">
+                  <a aria-label="Visit ProcMart" href="https://www.procmart.com" target="_blank" rel="noopener noreferrer"
+                    data-position="top" data-tooltip="ProcMart"
+                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+                      class="fa fa-external-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m6 l4">
+            <div class="card medium">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img alt="procmart.com redesign" src="assets/img/javascript.png" style="height: 100%; width: 100%; object-fit: cover;" class="activator" />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator teal-text hoverline">procmart.com Redesign<i
+                    class="mdi-navigation-more-vert right"></i></span>
+                <p>
+                  End-to-end marketing site redesign for hierarchy and mobile
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text"><small>Accomplishments</small><i
+                    class="mdi-navigation-close right"></i></span>
+                <ul>
+                  <li><b>Tools:</b> HTML/CSS, JavaScript, UI Redesign</li>
+                  <li>Improved visual hierarchy, responsiveness, and brand presentation.</li>
+                </ul>
+                <div class="card-action">
+                  <a aria-label="Visit procmart.com" href="https://www.procmart.com" target="_blank" rel="noopener noreferrer"
+                    data-position="top" data-tooltip="Live site"
+                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+                      class="fa fa-external-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m6 l4">
+            <div class="card medium">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img alt="Session and invoice APIs" src="assets/img/mysql-logo-1.png" style="height: 100%; width: 100%" class="activator" />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator teal-text hoverline">Session &amp; Invoice APIs<i
+                    class="mdi-navigation-more-vert right"></i></span>
+                <p>
+                  Device-aware sessions and invoice REST APIs for the portal
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text"><small>Accomplishments</small><i
+                    class="mdi-navigation-close right"></i></span>
+                <ul>
+                  <li><b>Tools:</b> Express, Sequelize, MySQL</li>
+                  <li>Session policy, audit logging, device tables.</li>
+                  <li>Invoice and adjustment-note management APIs.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m6 l4">
+            <div class="card medium">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img alt="Adhoc Reports" src="assets/img/css3.png" style="height: 100%; width: 100%" class="activator" />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator teal-text hoverline">Adhoc Reports UX<i
+                    class="mdi-navigation-more-vert right"></i></span>
+                <p>
+                  Portal modules redesigned for faster day-to-day scanning
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text"><small>Accomplishments</small><i
+                    class="mdi-navigation-close right"></i></span>
+                <ul>
+                  <li><b>Tools:</b> React, Vite, Portal UX</li>
+                  <li>Reports, user info, data tables, and chat modules.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m6 l4">
+            <div class="card medium">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img alt="Portfolio website" src="assets/img/project-music-player.png" style="height: 100%; width: 100%" class="activator" />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator teal-text hoverline">Personal Portfolio<i
+                    class="mdi-navigation-more-vert right"></i></span>
+                <p>
+                  Scrollable GitHub Pages portfolio based on a popular template
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text"><small>Accomplishments</small><i
+                    class="mdi-navigation-close right"></i></span>
+                <ul>
+                  <li><b>Tools:</b> HTML5, CSS3, JavaScript, Materialize</li>
+                  <li>Side-nav scrollspy sections with typed.js hero.</li>
+                  <li>Based on <a href="https://github.com/varadbhogayata/varadbhogayata.github.io" target="_blank" rel="noopener noreferrer">varadbhogayata.github.io</a> (MIT).</li>
+                </ul>
+                <div class="card-action">
+                  <a aria-label="Live portfolio" href="https://vanshbishtbuild.github.io/MY-PORTFOLIO/" target="_blank" rel="noopener noreferrer"
+                    data-position="top" data-tooltip="Live Demo"
+                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+                      class="fa fa-external-link"></i></a>
+                  <a aria-label="GitHub repo" href="https://github.com/vanshbishtbuild/MY-PORTFOLIO" target="_blank" rel="noopener noreferrer"
+                    data-position="top" data-tooltip="View Source"
+                    class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+                      class="fa fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col s12 m6 l4">
+            <div class="card medium">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img alt="Amazon Clone" src="assets/img/bootstrap.png" style="height: 100%; width: 100%" class="activator" />
+              </div>
+              <div class="card-content">
+                <span class="card-title activator teal-text hoverline">Amazon Clone — Frontend<i
+                    class="mdi-navigation-more-vert right"></i></span>
+                <p>
+                  E-commerce inspired UI with cart and mobile-first layout
+                </p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text"><small>Accomplishments</small><i
+                    class="mdi-navigation-close right"></i></span>
+                <ul>
+                  <li><b>Tools:</b> HTML5, CSS3, JavaScript, Bootstrap</li>
+                  <li>Product cards, navigation, cart UI, responsive build.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section scrollspy">
+      <h3 class="page-title white-text teal">Skills</h3>
+      <div class="container">
+        <div class="card">
+          <div class="card-content">
+            <h4 class="brown-text light">Frontend</h4>
+            <div class="row text-center">
+              <div class="col s4 m2">
+                <img alt="HTML5" src="assets/img/html5-300x300.jpg" class="responsive-img" />HTML5
+              </div>
+              <div class="col s4 m2">
+                <img alt="CSS3" src="assets/img/css3-300x300.jpg" class="responsive-img" />CSS3
+              </div>
+              <div class="col s4 m2">
+                <img alt="JavaScript" src="assets/img/javascript.png" class="responsive-img" />JavaScript
+              </div>
+              <div class="col s4 m2">
+                <img alt="Bootstrap" src="assets/img/bootstrap.png" class="responsive-img" />Bootstrap
+              </div>
+              <div class="col s4 m2">
+                <img alt="React" src="assets/img/nodejs.png" class="responsive-img" />React / Vite
+              </div>
+              <div class="col s4 m2">
+                <img alt="TypeScript" src="assets/img/css3.png" class="responsive-img" />TypeScript
+              </div>
+            </div>
           </div>
         </div>
-        <div class="skill-group reveal delay-3">
-          <h3>Tools</h3>
-          <div class="skill-tags">
-            <span class="skill">Git</span><span class="skill">GitLab</span><span class="skill">GitHub</span>
-            <span class="skill">VS Code</span><span class="skill">Python</span>
+
+        <div class="card">
+          <div class="card-content">
+            <h4 class="brown-text light">Backend &amp; Data</h4>
+            <div class="row text-center">
+              <div class="col s4 m2">
+                <img alt="Node.js" src="assets/img/nodejs.png" class="responsive-img" />Node.js
+              </div>
+              <div class="col s4 m2">
+                <img alt="MySQL" src="assets/img/mysql-logo-1-300x300.jpg" class="responsive-img" />MySQL
+              </div>
+              <div class="col s4 m2">
+                <img alt="Python" src="assets/img/python-logo-1-300x300.jpg" class="responsive-img" />Python
+              </div>
+              <div class="col s4 m2">
+                <img alt="Express" src="assets/img/shell-logo-1-300x300.jpg" class="responsive-img" />Express
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-content">
+            <h4 class="brown-text light">Tools</h4>
+            <div class="row text-center">
+              <div class="col s4 m2">
+                <img alt="Git" src="assets/img/git.png" class="responsive-img" />Git
+              </div>
+              <div class="col s4 m2">
+                <img alt="GitHub" src="assets/img/github.png" class="responsive-img" />GitHub / GitLab
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="education">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2><span class="idx">05</span> Education</h2>
-        <div class="section-line"></div>
-      </div>
-      <div class="edu-list">
-        <div class="edu reveal">
-          <div>
-            <h3>Graphic Era University</h3>
-            <div class="sub">B.Tech, Computer Science Engineering</div>
+    <!-- Education -->
+    <section id="education" class="section scrollspy">
+      <h3 class="page-title white-text teal">Education</h3>
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m6 l6">
+            <div class="card">
+              <div class="card-content">
+                <p>
+                  <span class="card-title"><a href="https://www.geu.ac.in/" target="_blank" rel="noopener noreferrer" class="teal-text hoverline">Graphic Era University</a></span>
+                </p>
+                <p class="brown-text">Dehradun, India</p>
+                <p>
+                  <b>Degree: </b>B.Tech, Computer Science Engineering
+                  <br>
+                  <b>CGPA: </b>6.32/10
+                </p>
+                <ul>
+                  <p>
+                    <b>Focus:</b>
+                  <ul>
+                    <li>Web Development</li>
+                    <li>Data Structures &amp; Algorithms</li>
+                    <li>Database Systems</li>
+                  </ul>
+                  </p>
+                </ul>
+              </div>
+              <div class="card-action">
+                <span>2022 – 2026</span>
+              </div>
+            </div>
           </div>
-          <div class="meta">2022 – 2026<br>CGPA 6.32/10</div>
-        </div>
-        <div class="edu reveal delay-1">
-          <div>
-            <h3>St Kabeer Academy</h3>
-            <div class="sub">Senior Secondary (Class XII), CBSE</div>
+          <div class="col s12 m6 l6">
+            <div class="card">
+              <div class="card-content">
+                <p>
+                  <span class="card-title"><span class="teal-text">St Kabeer Academy</span></span>
+                </p>
+                <p class="brown-text">CBSE</p>
+                <p>
+                  <b>Class XII:</b> 2021 · 71.6%<br>
+                  <b>Class X:</b> 2019 · 72.4%
+                </p>
+              </div>
+            </div>
           </div>
-          <div class="meta">2021 · 71.6%</div>
-        </div>
-        <div class="edu reveal delay-2">
-          <div>
-            <h3>St Kabeer Academy</h3>
-            <div class="sub">Secondary (Class X), CBSE</div>
-          </div>
-          <div class="meta">2019 · 72.4%</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact">
-    <div class="container">
-      <div class="contact-box reveal">
-        <h2><span class="idx">06</span> Let’s work together</h2>
-        <p>Open to roles and collaborations in frontend, full-stack web, and product UI. Reach out anytime.</p>
-        <div class="contact-links">
-          <a href="mailto:Bishtvansh491@gmail.com">Email</a>
-          <a href="tel:+918755629841">+91 8755629841</a>
-          <a href="https://github.com/vanshbishtbuild" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://www.procmart.com" target="_blank" rel="noopener">ProcMart</a>
-        </div>
+    <!-- Contact -->
+    <section id="contact" class="section scrollspy full-height">
+      <h3 class="page-title white-text teal">Contact</h3>
+      <div class="container">
+        <p>
+          <a aria-label="Call Vansh" href="tel:+918755629841" data-position="top" data-tooltip="Call Vansh"
+            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-phone"></i></a>
+          <a aria-label="Call Vansh" href="tel:+918755629841" class="hoverline">+91 8755629841</a>
+        </p>
+        <p>
+          <a aria-label="Email Vansh" href="mailto:Bishtvansh491@gmail.com" data-position="top"
+            data-tooltip="Email Vansh" class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i
+              class="fa fa-envelope"></i></a>
+          <a aria-label="Email Vansh" href="mailto:Bishtvansh491@gmail.com"
+            class="hoverline">Bishtvansh491@gmail.com</a>
+        </p>
+        <p>
+          <a aria-label="View Vansh on GitHub" href="https://github.com/vanshbishtbuild" target="_blank" rel="noopener noreferrer"
+            data-position="top" data-tooltip="View Vansh on GitHub"
+            class="btn-floating btn-large waves-effect waves-light blue-grey tooltipped"><i class="fa fa-github"></i></a>
+          <a aria-label="Vansh on Github" href="https://github.com/vanshbishtbuild" class="hoverline"
+            target="_blank" rel="noopener noreferrer">github.com/vanshbishtbuild</a>
+        </p>
+        <p>
+          <i class="fa fa-map-marker"></i>
+          <span class="hoverline">Uttarakhand, India</span>
+        </p>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
-<footer>
-  <p>© <span id="year"></span> Vansh Bisht · Built for GitHub Pages</p>
-</footer>
-
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  const nav = document.getElementById('nav');
-  const toggle = document.getElementById('nav-toggle');
-  const links = document.getElementById('nav-links');
-
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  }, { passive: true });
-
-  toggle.addEventListener('click', () => {
-    links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', links.classList.contains('open'));
-  });
-
-  links.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => links.classList.remove('open'));
-  });
-
-  const sections = [...document.querySelectorAll('section[id]')];
-  const navAnchors = [...document.querySelectorAll('.nav-links a[href^="#"]')];
-
-  const spy = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const id = entry.target.id;
-      navAnchors.forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-      });
+  <!-- typed.js -->
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script type="text/javascript">
+    var typed = new Typed('.typing', {
+      strings: ["Software Engineer", "Frontend Developer", "React / Node Builder"],
+      loop: true,
+      typeSpeed: 80,
+      backSpeed: 40
     });
-  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+  </script>
 
-  sections.forEach(s => spy.observe(s));
+  <!-- jQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        revealObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-</script>
+  <!-- Materialize - Compiled and minified JavaScript-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
+  <script>
+    // Materialize - Initializers (from template)
+    $(document).ready(function () {
+      $(".scrollspy").scrollSpy()
+      $(".button-collapse").sideNav({
+        menuWidth: 190,
+        edge: "left",
+        closeOnClick: true
+      })
+    })
+  </script>
 </body>
+
 </html>

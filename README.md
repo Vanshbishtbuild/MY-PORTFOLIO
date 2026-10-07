@@ -1,5 +1,5 @@
 # Vansh Bisht — Portfolio
 
-Live: [https://vanshbishtbuild.github.io/MY-PORTFOLIO/](https://vanshbishtbuild.github.io/MY-PORTFOLIO/)
+Live: https://vanshbishtbuild.github.io/MY-PORTFOLIO/
 
-Single-page scrollable portfolio (HTML/CSS/JS) for GitHub Pages.
+Based on [varadbhogayata/varadbhogayata.github.io](https://github.com/varadbhogayata/varadbhogayata.github.io) (MIT) — Materialize side-nav + scrollspy portfolio. Content customized from resume (ProcMart, skills, education, contact).
